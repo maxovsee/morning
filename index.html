@@ -1,12 +1,27 @@
 <html> 
   <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-   <style> body { text-align: center; font-family: "Times New Roman", sans-serif; } h1, h2, h3 { font-weight: bold; }     .fixed-button {
+   <style> 
+     body { 
+       text-align: center; font-family: "Times New Roman", sans-serif; 
+     } 
+     
+     h1, h2, h3 { font-weight: bold; }    
+     
+     .fixed-button {
      position: fixed;
-  right: 20px;} </style> 
+     right: 20px;
+     } 
+     #prayer-button {
+     position: fixed;
+     left: 50%;
+     transform: translateX(-50%);
+     display: none;
+   } </style> 
 </head> 
   <body> 
     <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
+    <button id="prayer-button" onclick="scrollToPrayer()">Молитва за живых</button>
     <h1>Молитвы утренние</h1> 
     <p>Востав от сна, прежде всякого другого дела, стань благоговейно, представляя себя пред Всевидящим Богом, и, совершая крестное знамение, произнеси:</p> 
   <p>Во имя Отца, и Сына, и Святаго Духа, Аминь.</p> 
