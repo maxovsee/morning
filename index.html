@@ -370,16 +370,19 @@
 
 
 <script>
-    const mondayText = document.getElementById("monday-text");
+  const mondayText = document.getElementById("monday-text");
 
-const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-if (currentDay === 1) { // 1 = Monday
-  mondayText.style.display = "block";
-} else {
-  mondayText.style.display = "none";
-}
+  if (currentDay === 1) { // 1 = Monday
+    mondayText.style.display = "block";
+    alert("Today is Monday!"); // Add this line
+  } else {
+    mondayText.style.display = "none";
+    alert("Today is not Monday!"); // Add this line
+  }
 </script>
+
 <script>
    let button = document.getElementById("scroll-button");
    let windowHeight = window.innerHeight;
