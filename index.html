@@ -270,16 +270,17 @@
  let documentHeight = document.body.offsetHeight;
  window.addEventListener("scroll", function() {
    let scrollPosition = window.scrollY;
-   if (scrollPosition + windowHeight >= documentHeight) {
-     button.style.top = "20px";
-     button.style.bottom = "auto";
-   } else if (scrollPosition <= 0) {
+   if (scrollPosition >= documentHeight / 2) {
      button.style.top = "auto";
      button.style.bottom = "20px";
+   } else {
+     button.style.top = "20px";
+     button.style.bottom = "auto";
    }
  });
  function scrollToTopOrBottom() {
-   if (document.getElementById("scroll-button").style.bottom === "20px") {
+   let scrollPosition = window.scrollY;
+   if (scrollPosition >= documentHeight / 2) {
      window.scrollTo({ top: 0, behavior: 'smooth' });
    } else {
      window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
