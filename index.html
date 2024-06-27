@@ -268,25 +268,35 @@
    let button = document.getElementById("scroll-button");
 let windowHeight = window.innerHeight;
 let documentHeight = document.body.offsetHeight;
+let lastScrollDirection = null;
 window.addEventListener("scroll", function() {
  let scrollPosition = window.scrollY;
  if (scrollPosition + windowHeight >= documentHeight) {
    button.style.top = "20px";
    button.style.bottom = "auto";
-   button.style.display = "block"; // show the button
+   button.style.display = "block";
+   lastScrollDirection = "down";
  } else if (scrollPosition <= 0) {
    button.style.top = "auto";
    button.style.bottom = "20px";
-   button.style.display = "block"; // show the button
+   button.style.display = "block";
+   lastScrollDirection = "up";
  } else {
-   button.style.display = "none"; // hide the button
+   let middlePosition = documentHeight / 2;
+   if (scrollPosition >= middlePosition - windowHeight / 2 && scrollPosition <= middlePosition + windowHeight / 2) {
+     button.style.top = "50%";
+     button.style.bottom = "auto";
+     button.style.transform = "translateY(-50%)";
+     button.style.display = "block";
+   } else {
+     button.style.display = "none";
+   }
  }
 });
 function scrollToTopOrBottom() {
- let scrollPosition = window.scrollY;
- if (scrollPosition + windowHeight >= documentHeight) {
+ if (lastScrollDirection === "up") {
    window.scrollTo(0, 0);
- } else if (scrollPosition <= 0) {
+ } else if (lastScrollDirection === "down") {
    window.scrollTo(0, documentHeight - windowHeight);
  }
 }
