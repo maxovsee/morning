@@ -1,52 +1,12 @@
 <html> 
   <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <style>
-   body {
-     text-align: center;
-     font-family: "Times New Roman", serif;
-   }
-   h1, h2, h3 {
-     font-weight: bold;
-   }
-   .fixed-button {
+   <style> body { text-align: center; font-family: "Times New Roman", sans-serif; } h1, h2, h3 { font-weight: bold; }     .fixed-button {
      position: fixed;
-     right: 20px;
-     background-color: rgba(255, 255, 255, 0.5);
-     border: none;
-     padding: 10px 20px;
-     font-size: 16px;
-     cursor: pointer;
-   }
-   .prayer-button {
-     position: fixed;
-     right: 20px;
-     bottom: 60px; /* adjust the bottom position to fit your needs */
-     background-color: rgba(255, 255, 255, 0.5);
-     border: none;
-     padding: 10px 20px;
-     font-size: 16px;
-     cursor: pointer;
-     display: none; /* hide the button initially */
-   }
-   /* added iPhone-specific styles */
-   @media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-     .fixed-button {
-       background-color: rgba(255, 255, 255, 0);
-       border: none;
-       color: #fff;
-     }
-     .prayer-button {
-       background-color: rgba(255, 255, 255, 0);
-       border: none;
-       color: #fff;
-     }
-   }
-</style> 
+  right: 20px;} </style> 
 </head> 
   <body> 
     <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
-    <button id="prayer-button" class="prayer-button" onclick="alert('Молитва о живых')">Молитва о живых</button>
     <h1>Молитвы утренние</h1> 
     <p>Востав от сна, прежде всякого другого дела, стань благоговейно, представляя себя пред Всевидящим Богом, и, совершая крестное знамение, произнеси:</p> 
   <p>Во имя Отца, и Сына, и Святаго Духа, Аминь.</p> 
@@ -305,30 +265,18 @@
 <br><p>Возсияй в сердцах наших, Человеколюбче Господи, Твоего Боговедения нетленный свет, и мысленная наша отверзи очи, во евангельских Твоих проповеданий разумение, вложи в нас и блаженных Твоих заповедей страх, да плотския похоти вся поправше, духовное жительство пройдем, вся, яже ко благоугождению Твоему и мудрствующе и деюще. Ты бо еси просвещение душ и телес наших, Христе Боже, и Тебе славу возсылаем, со Безначальным Твоим Отцем и Всесвятым, и Благим, и Животворящим Твоим Духом, ныне и присно, и во веки веков, аминь.</p> <br>
     
 <script>
-   let scrollButton = document.getElementById("scroll-button");
-   let prayerButton = document.getElementById("prayer-button");
+   let button = document.getElementById("scroll-button");
    let windowHeight = window.innerHeight;
    let documentHeight = document.body.offsetHeight;
-   let lastScrollPosition = 0;
    window.addEventListener("scroll", function() {
      let scrollPosition = window.scrollY;
-     if (scrollPosition > lastScrollPosition) {
-       scrollButton.style.top = "auto";
-       scrollButton.style.bottom = "20px";
-     } else {
-       scrollButton.style.top = "20px";
-       scrollButton.style.bottom = "auto";
-     }
      if (scrollPosition + windowHeight >= documentHeight) {
-       prayerButton.style.display = "block";
-       prayerButton.style.bottom = "60px"; /* adjust the bottom position to fit your needs */
+       button.style.top = "20px";
+       button.style.bottom = "auto";
      } else if (scrollPosition <= 0) {
-       prayerButton.style.display = "block";
-       prayerButton.style.top = "60px"; /* adjust the top position to fit your needs */
-     } else {
-       prayerButton.style.display = "none";
+       button.style.top = "auto";
+       button.style.bottom = "20px";
      }
-     lastScrollPosition = scrollPosition;
    });
    function scrollToTopOrBottom() {
      let scrollPosition = window.scrollY;
@@ -339,5 +287,7 @@
      }
    }
 </script>
+</body>
+</html>
 </body>
 </html>
