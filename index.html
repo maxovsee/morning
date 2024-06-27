@@ -266,22 +266,22 @@
 <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
 <script>
    let button = document.getElementById("scroll-button");
-   let windowHeight = window.innerHeight;
-   let documentHeight = document.body.offsetHeight;
+   let lastScrollPosition = 0;
    window.addEventListener("scroll", function() {
      let scrollPosition = window.scrollY;
-     if (scrollPosition > (documentHeight / 2) - windowHeight) {
+     if (scrollPosition > lastScrollPosition) {
        button.style.top = "auto";
        button.style.bottom = "20px";
      } else {
        button.style.top = "20px";
        button.style.bottom = "auto";
      }
+     lastScrollPosition = scrollPosition;
    });
    function scrollToTopOrBottom() {
      let scrollPosition = window.scrollY;
-     if (scrollPosition > (documentHeight / 2)) {
-       window.scrollTo(0, documentHeight - windowHeight);
+     if (scrollPosition > 0) {
+       window.scrollTo(0, document.body.offsetHeight);
      } else {
        window.scrollTo(0, 0);
      }
