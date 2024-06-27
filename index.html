@@ -1,9 +1,48 @@
 <html> 
   <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <style> body { text-align: center; font-family: "Times New Roman", sans-serif; } h1, h2, h3 { font-weight: bold; }     .fixed-button {
+    <style>
+   body {
+     text-align: center;
+     font-family: "Times New Roman", serif;
+   }
+   h1, h2, h3 {
+     font-weight: bold;
+   }
+   .fixed-button {
      position: fixed;
-  right: 20px;} </style> 
+     right: 20px;
+     background-color: rgba(255, 255, 255, 0.5);
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+   }
+   .prayer-button {
+     position: fixed;
+     right: 20px;
+     bottom: 60px; /* adjust the bottom position to fit your needs */
+     background-color: rgba(255, 255, 255, 0.5);
+     border: none;
+     padding: 10px 20px;
+     font-size: 16px;
+     cursor: pointer;
+     display: none; /* hide the button initially */
+   }
+   /* added iPhone-specific styles */
+   @media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+     .fixed-button {
+       background-color: rgba(255, 255, 255, 0);
+       border: none;
+       color: #fff;
+     }
+     .prayer-button {
+       background-color: rgba(255, 255, 255, 0);
+       border: none;
+       color: #fff;
+     }
+   }
+</style> 
 </head> 
   <body> 
     <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
