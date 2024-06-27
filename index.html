@@ -371,17 +371,6 @@
     <p>Возсияй в сердцах наших, Человеколюбче Господи, Твоего Боговедения нетленный свет, и мысленная наша отверзи очи, во евангельских Твоих проповеданий разумение, вложи в нас и блаженных Твоих заповедей страх, да плотския похоти вся поправше, духовное жительство пройдем, вся, яже ко благоугождению Твоему и мудрствующе и деюще. Ты бо еси просвещение душ и телес наших, Христе Боже, и Тебе славу возсылаем, со Безначальным Твоим Отцем и Всесвятым, и Благим, и Животворящим Твоим Духом, ныне и присно, и во веки веков, аминь.</p> <br>
 
 
-<script>
-  const mondayText = document.getElementById("monday-text");
-
-  const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-
-  if (currentDay === 1) { // 1 = Monday
-    mondayText.style.display = "block";
-  } else {
-    mondayText.style.display = "none";
-  }
-</script>
 
 
 <script>
@@ -410,6 +399,16 @@
        window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
      }
    }
+  
+  const mondayText = document.getElementById("monday-text");
+
+  const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+  if (currentDay === 1) { // 1 = Monday
+    mondayText.style.display = "block";
+  } else {
+    mondayText.style.display = "none";
+  }
 </script>
 </body>
 </html>
