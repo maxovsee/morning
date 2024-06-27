@@ -268,37 +268,27 @@
    let button = document.getElementById("scroll-button");
 let windowHeight = window.innerHeight;
 let documentHeight = document.body.offsetHeight;
-let lastScrollDirection = null;
 window.addEventListener("scroll", function() {
- let scrollPosition = window.scrollY;
- if (scrollPosition + windowHeight >= documentHeight) {
+let scrollPosition = window.scrollY;
+if (scrollPosition + windowHeight >= documentHeight) {
    button.style.top = "20px";
    button.style.bottom = "auto";
-   button.style.display = "block";
-   lastScrollDirection = "down";
- } else if (scrollPosition <= 0) {
+   button.style.display = "block"; // show the button
+} else if (scrollPosition <= 0) {
    button.style.top = "auto";
    button.style.bottom = "20px";
-   button.style.display = "block";
-   lastScrollDirection = "up";
- } else {
-   let middlePosition = documentHeight / 2;
-   if (scrollPosition >= middlePosition - windowHeight / 2 && scrollPosition <= middlePosition + windowHeight / 2) {
-     button.style.top = "50%";
-     button.style.bottom = "auto";
-     button.style.transform = "translateY(-50%)";
-     button.style.display = "block";
-   } else {
-     button.style.display = "none";
-   }
- }
+   button.style.display = "block"; // show the button
+} else {
+   button.style.display = "none"; // hide the button
+}
 });
 function scrollToTopOrBottom() {
- if (lastScrollDirection === "up") {
+let scrollPosition = window.scrollY;
+if (scrollPosition + windowHeight >= documentHeight) {
    window.scrollTo(0, 0);
- } else if (lastScrollDirection === "down") {
+} else if (scrollPosition <= 0) {
    window.scrollTo(0, documentHeight - windowHeight);
- }
+}
 }
 </script>
 </body>
