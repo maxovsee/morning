@@ -76,19 +76,16 @@
 </p>
 
      <script>
-
-      const today = new Date();
+  const today = new Date();
   const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-  if (dayOfWeek !== 1) { // 1 = Monday
-    document.getElementById("monday-text").style.display = "none";
-    console.log("Hiding element on non-Monday");
-  } else {
+  if (dayOfWeek === 1) { // 1 = Monday
+    document.getElementById("monday-text").style.display = "block";
     console.log("Showing element on Monday");
+  } else {
+    console.log("Hiding element on non-Monday");
   }
-  
 </script>
-
     
     <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
 
