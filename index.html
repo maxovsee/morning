@@ -265,29 +265,26 @@
 <br><p>Возсияй в сердцах наших, Человеколюбче Господи, Твоего Боговедения нетленный свет, и мысленная наша отверзи очи, во евангельских Твоих проповеданий разумение, вложи в нас и блаженных Твоих заповедей страх, да плотския похоти вся поправше, духовное жительство пройдем, вся, яже ко благоугождению Твоему и мудрствующе и деюще. Ты бо еси просвещение душ и телес наших, Христе Боже, и Тебе славу возсылаем, со Безначальным Твоим Отцем и Всесвятым, и Благим, и Животворящим Твоим Духом, ныне и присно, и во веки веков, аминь.</p> <br>
     
 <script>
-   let button = document.getElementById("scroll-button");
-   let windowHeight = window.innerHeight;
-   let documentHeight = document.body.offsetHeight;
-   window.addEventListener("scroll", function() {
-     let scrollPosition = window.scrollY;
-     if (scrollPosition + windowHeight >= documentHeight) {
-       button.style.top = "20px";
-       button.style.bottom = "auto";
-     } else if (scrollPosition <= 0) {
-       button.style.top = "auto";
-       button.style.bottom = "20px";
-     }
-   });
-   function scrollToTopOrBottom() {
-     let scrollPosition = window.scrollY;
-     if (scrollPosition + windowHeight >= documentHeight) {
-       window.scrollTo(0, 0);
-     } else if (scrollPosition <= 0) {
-       window.scrollTo(0, documentHeight - windowHeight);
-     }
+ let button = document.getElementById("scroll-button");
+ let windowHeight = window.innerHeight;
+ let documentHeight = document.body.offsetHeight;
+ window.addEventListener("scroll", function() {
+   let scrollPosition = window.scrollY;
+   if (scrollPosition + windowHeight >= documentHeight) {
+     button.style.top = "20px";
+     button.style.bottom = "auto";
+   } else if (scrollPosition <= 0) {
+     button.style.top = "auto";
+     button.style.bottom = "20px";
    }
+ });
+ function scrollToTopOrBottom() {
+   if (document.getElementById("scroll-button").style.bottom === "20px") {
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+   } else {
+     window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
+   }
+ }
 </script>
-</body>
-</html>
 </body>
 </html>
