@@ -266,15 +266,10 @@
     
 <script>
    let button = document.getElementById("scroll-button");
-   let lastScrollPosition = 0;
    let windowHeight = window.innerHeight;
    let documentHeight = document.body.offsetHeight;
    window.addEventListener("scroll", function() {
      let scrollPosition = window.scrollY;
-     if (scrollPosition > lastScrollPosition) {
-       button.style.top = "auto";
-       button.style.bottom = "20px";
-     } else {
      if (scrollPosition + windowHeight >= documentHeight) {
        button.style.top = "20px";
        button.style.bottom = "auto";
@@ -282,13 +277,9 @@
        button.style.top = "auto";
        button.style.bottom = "20px";
      }
-     lastScrollPosition = scrollPosition;
    });
    function scrollToTopOrBottom() {
      let scrollPosition = window.scrollY;
-     if (scrollPosition > 0) {
-       window.scrollTo(0, document.body.offsetHeight);
-     } else {
      if (scrollPosition + windowHeight >= documentHeight) {
        window.scrollTo(0, 0);
      } else if (scrollPosition <= 0) {
