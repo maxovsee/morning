@@ -280,7 +280,9 @@
  });
  function scrollToTopOrBottom() {
    let scrollPosition = window.scrollY;
-   if (scrollPosition >= documentHeight / 2) {
+   if (scrollPosition + windowHeight >= documentHeight - 100) {
+     window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
+   } else if (scrollPosition >= documentHeight / 2) {
      window.scrollTo({ top: 0, behavior: 'smooth' });
    } else {
      window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
