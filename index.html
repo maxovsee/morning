@@ -1,18 +1,12 @@
 <html> 
   <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <style> body { text-align: center; font-family: "Times New Roman", sans-serif; } h1, h2, h3 { font-weight: bold; }  .fixed-button-top {
+    <style> body { text-align: center; font-family: "Times New Roman", sans-serif; } h1, h2, h3 { font-weight: bold; }     .fixed-button {
      position: fixed;
-     top: 20px;
-     right: 20px;
-   }
-   .fixed-button-bottom {
-     position: fixed;
-     bottom: 20px;
-     right: 20px;} </style> 
+  right: 20px;} </style> 
 </head> 
   <body> 
-    <button class="fixed-button-top" onclick="scrollToTopOrBottom()">Прыжок</button>
+    <button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
     <h1>Молитвы утренние</h1> 
     <p>Востав от сна, прежде всякого другого дела, стань благоговейно, представляя себя пред Всевидящим Богом, и, совершая крестное знамение, произнеси:</p> 
   <p>Во имя Отца, и Сына, и Святаго Духа, Аминь.</p> 
@@ -269,12 +263,23 @@
 <br>Испроси нам у Господа Бога прощение грехов наших, да не до конца прогневается на нас Господь: согрешихом бо и недостойни явихомся милосердия божия. Моли о нас Господа Бога, да низпослет мир на грады и веси наша, да избавит нас от нашествия иноплеменников, междуусобныя брани и всяких раздоров и нестроений! Утверди, священномучениче, веру и благочестие во всех чадах православныя христианския церкви, и да избавит нас Господь Бог от ересей, расколов и всякого суеверия. О милосердный мучениче!
 <br>Молися за ны ко Господу, да сохранит нас от глада и всяких болезней, и да подаст нам изобилие плодов земных, скотов умножение на потребу человеком и вся нам полезная: наипаче же да сподобимся, молитвами твоими, небеснаго царствия Христа Бога нашего, Ему же честь и поклонение подобает, со безначальным его Отцем и Пресвятым Духом, ныне и присно, и во веки веков. Аминь.</p>
 <br><p>Возсияй в сердцах наших, Человеколюбче Господи, Твоего Боговедения нетленный свет, и мысленная наша отверзи очи, во евангельских Твоих проповеданий разумение, вложи в нас и блаженных Твоих заповедей страх, да плотския похоти вся поправше, духовное жительство пройдем, вся, яже ко благоугождению Твоему и мудрствующе и деюще. Ты бо еси просвещение душ и телес наших, Христе Боже, и Тебе славу возсылаем, со Безначальным Твоим Отцем и Всесвятым, и Благим, и Животворящим Твоим Духом, ныне и присно, и во веки веков, аминь.</p> <br>
-<button class="fixed-button-top" onclick="scrollToTopOrBottom()">Прыжок</button>
+<button id="scroll-button" class="fixed-button" style="bottom: 20px;" onclick="scrollToTopOrBottom()">Прыжок</button>
 <script>
+   let button = document.getElementById("scroll-button");
+   let windowHeight = window.innerHeight;
+   let documentHeight = document.body.offsetHeight;
+   window.addEventListener("scroll", function() {
+     let scrollPosition = window.scrollY;
+     if (scrollPosition > (documentHeight / 2) - windowHeight) {
+       button.style.top = "auto";
+       button.style.bottom = "20px";
+     } else {
+       button.style.top = "20px";
+       button.style.bottom = "auto";
+     }
+   });
    function scrollToTopOrBottom() {
-     const scrollPosition = window.scrollY;
-     const windowHeight = window.innerHeight;
-     const documentHeight = document.body.offsetHeight;
+     let scrollPosition = window.scrollY;
      if (scrollPosition > (documentHeight / 2)) {
        window.scrollTo(0, documentHeight - windowHeight);
      } else {
