@@ -280,21 +280,34 @@
 <br><p>Возсияй в сердцах наших, Человеколюбче Господи, Твоего Боговедения нетленный свет, и мысленная наша отверзи очи, во евангельских Твоих проповеданий разумение, вложи в нас и блаженных Твоих заповедей страх, да плотския похоти вся поправше, духовное жительство пройдем, вся, яже ко благоугождению Твоему и мудрствующе и деюще. Ты бо еси просвещение душ и телес наших, Христе Боже, и Тебе славу возсылаем, со Безначальным Твоим Отцем и Всесвятым, и Благим, и Животворящим Твоим Духом, ныне и присно, и во веки веков, аминь.</p> <br>
     
 <script>
-   let button = document.getElementById("scroll-button");
+   let scrollButton = document.getElementById("scroll-button");
+   let prayerButton = document.getElementById("prayer-button");
    let windowHeight = window.innerHeight;
    let documentHeight = document.body.offsetHeight;
+   let prayerOffsetTop = document.getElementById("prayer").offsetTop;
    window.addEventListener("scroll", function() {
      let scrollPosition = window.scrollY;
      if (scrollPosition + windowHeight >= documentHeight) {
-       button.style.top = "20px";
-       button.style.bottom = "auto";
-       button.style.display = "block"; // show the button
+       scrollButton.style.top = "20px";
+       scrollButton.style.bottom = "auto";
+       scrollButton.style.display = "block"; // show the button
      } else if (scrollPosition <= 0) {
-       button.style.top = "auto";
-       button.style.bottom = "20px";
-       button.style.display = "block"; // show the button
+       scrollButton.style.top = "auto";
+       scrollButton.style.bottom = "20px";
+       scrollButton.style.display = "block"; // show the button
      } else {
-       button.style.display = "none"; // hide the button
+       scrollButton.style.display = "none"; // hide the button
+     }
+     if (scrollPosition < prayerOffsetTop - windowHeight / 2) {
+       prayerButton.style.top = "auto";
+       prayerButton.style.bottom = "20px";
+       prayerButton.style.display = "block"; // show the button
+     } else if (scrollPosition > prayerOffsetTop + windowHeight / 2) {
+       prayerButton.style.top = "20px";
+       prayerButton.style.bottom = "auto";
+       prayerButton.style.display = "block"; // show the button
+     } else {
+       prayerButton.style.display = "none"; // hide the button
      }
    });
    function scrollToTopOrBottom() {
@@ -304,6 +317,9 @@
      } else if (scrollPosition <= 0) {
        window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
      }
+   }
+   function scrollToPrayer() {
+     window.scrollTo({ top: prayerOffsetTop, behavior: 'smooth' });
    }
 </script>
 </body>
