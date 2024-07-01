@@ -423,6 +423,25 @@
   } else {
     mondayText.style.display = "none";
   }
+  
+  //сбережение позиции
+  const body = document.body;
+  const scrollPositionKey = 'scrollPosition';
+
+  // Save scroll position when user leaves the app
+  window.addEventListener('beforeunload', () => {
+    const scrollPosition = window.scrollY;
+    localStorage.setItem(scrollPositionKey, scrollPosition);
+  });
+
+  // Restore scroll position when user returns to the app
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedScrollPosition = localStorage.getItem(scrollPositionKey);
+    if (savedScrollPosition) {
+      window.scrollTo(0, parseInt(savedScrollPosition, 10));
+    }
+  });
+
 </script>
 </body>
 </html>
