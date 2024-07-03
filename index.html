@@ -431,9 +431,9 @@
   
   const mondayText = document.getElementById("monday-text");
 
-  const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const currentDayPravila = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-  if (currentDay === 1) { // 1 = Monday
+  if (currentDayPravila === 1) { // 1 = Monday
     mondayText.style.display = "block";
   } else {
     mondayText.style.display = "none";
@@ -443,13 +443,13 @@
   
   // каноны по одному в день
   const kanons = document.querySelectorAll('.kanon');
-let currentDay = 1;
+let currentDayKanon = 1;
 
 function showKanon() {
   kanons.forEach((kanon, index) => {
-    kanon.style.display = index === currentDay ? 'block' : 'none';
+    kanon.style.display = index === currentDayKanon ? 'block' : 'none';
   });
-  currentDay = (currentDay + 1) % kanons.length;
+  currentDayKanon = (currentDayKanon + 1) % kanons.length;
 }
 
 showKanon();
