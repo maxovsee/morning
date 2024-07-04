@@ -449,8 +449,7 @@
   const kanons = document.querySelectorAll('.kanon');
 let currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-// Start from the second one, so subtract 1 from the current day
-let startIndex = (currentDay - 1 + kanons.length) % kanons.length;
+let startIndex = currentDay % kanons.length;
 
 kanons.forEach((kanon, index) => {
   if (index === startIndex) {
@@ -458,7 +457,6 @@ kanons.forEach((kanon, index) => {
   } else {
     kanon.style.display = 'none';
   }
-  startIndex = (startIndex + 1) % kanons.length;
 });
 
 
