@@ -1,0 +1,22 @@
+<style> 
+     body { 
+      text-align: center; 
+      font-family: "Times New Roman", sans-serif; 
+      background-color: AntiqueWhite; /* Add AntiqueWhite background color */
+      color: MidnightBlue;
+      -webkit-user-select: none; 
+      -moz-user-select: none; 
+      -ms-user-select: none; 
+      user-select: none;
+     
+    } 
+     
+     h1, h2, h3 { font-weight: bold; }    
+     
+     .fixed-button {
+     position: fixed;
+     right: 20px;
+     } 
+    
+    
+          </style> 
