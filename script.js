@@ -1,4 +1,3 @@
-<script>
    let button = document.getElementById("scroll-button");
    let windowHeight = window.innerHeight;
    let documentHeight = document.body.offsetHeight;
@@ -51,6 +50,3 @@ kanons.forEach((kanon, index) => {
   }
 });
 
-
-
-</script>
