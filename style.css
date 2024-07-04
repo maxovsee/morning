@@ -17,3 +17,14 @@
      right: 20px;
      } 
 
+   }
+.kathisma {
+   display: none; /* hide all kathismas initially */
+   font-size: 16px; /* adjust font size for iPhone */
+   line-height: 1.5; /* adjust line height for better readability */
+}
+.kathisma p {
+   word-wrap: break-word; /* wrap words to prevent overflow */
+   text-align: justify; /* justify text for better readability */
+}
+
