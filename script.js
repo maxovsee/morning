@@ -78,6 +78,25 @@ kathismas.forEach((kathisma, index) => {
         const kathismaTolkElement = document.getElementById(kathismaTolkId);
         kathisma.outerHTML = kathismaTolkElement.outerHTML;
         kathisma.style.display = 'block'; // ensure the swapped element is visible
+
+        // Add event listener to the swapped element
+        kathisma.addEventListener('touchstart', (e) => {
+          const startTime2 = new Date().getTime();
+          let timer2;
+
+          timer2 = setTimeout(() => {
+            const currentTime2 = new Date().getTime();
+            if (currentTime2 - startTime2 >= 2000) { // 2 seconds
+              // Toggle back to the original kathisma
+              kathisma.outerHTML = kathismas[index].outerHTML;
+              kathisma.style.display = 'block'; // ensure the toggled element is visible
+            }
+          }, 2000); // 2 seconds
+
+          kathisma.addEventListener('touchend', () => {
+            clearTimeout(timer2);
+          });
+        });
       }
     }, 2000); // 2 seconds
 
@@ -86,6 +105,7 @@ kathismas.forEach((kathisma, index) => {
     });
   });
 });
+
 
 
 
