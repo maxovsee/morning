@@ -54,6 +54,9 @@ kanons.forEach((kanon, index) => {
 
 
 // подмена кафизмы толкованием
+А это единственнь правильно работающий экземпляр с заменой кафизм на толкования: 
+
+// подмена кафизмы толкованием
 const kathismas = document.querySelectorAll('.kathisma');
 const kathismasTolk = document.querySelectorAll('.kathisma-tolk');
 
@@ -61,51 +64,31 @@ const today = new Date();
 const dayOfYear = today.getDate() + (today.getMonth() * 30 - 1); // rough estimate, adjust as needed
 
 kathismas.forEach((kathisma, index) => {
-  if (index === dayOfYear % kathismas.length) {
-    kathisma.style.display = 'block';
-  } else {
-    kathisma.style.display = 'none';
-  }
+ if (index === dayOfYear % kathismas.length) {
+   kathisma.style.display = 'block';
+ } else {
+   kathisma.style.display = 'none';
+ }
 
-  kathisma.addEventListener('touchstart', (e) => {
-    const startTime = new Date().getTime();
-    let timer;
+ kathisma.addEventListener('touchstart', (e) => {
+   const startTime = new Date().getTime();
+   let timer;
 
-    timer = setTimeout(() => {
-      const currentTime = new Date().getTime();
-      if (currentTime - startTime >= 2000) { // 2 seconds
-        const kathismaTolkId = `kathisma-tolk-${index + 1}`;
-        const kathismaTolkElement = document.getElementById(kathismaTolkId);
-        kathisma.outerHTML = kathismaTolkElement.outerHTML;
-        kathisma.style.display = 'block'; // ensure the swapped element is visible
+   timer = setTimeout(() => {
+     const currentTime = new Date().getTime();
+     if (currentTime - startTime >= 2000) { // 2 seconds
+       const kathismaTolkId = `kathisma-tolk-${index + 1}`;
+       const kathismaTolkElement = document.getElementById(kathismaTolkId);
+       kathisma.outerHTML = kathismaTolkElement.outerHTML;
+       kathisma.style.display = 'block'; // ensure the swapped element is visible
+     }
+   }, 2000); // 2 seconds
 
-        // Add event listener to the swapped element
-        kathisma.addEventListener('touchstart', (e) => {
-          const startTime2 = new Date().getTime();
-          let timer2;
-
-          timer2 = setTimeout(() => {
-            const currentTime2 = new Date().getTime();
-            if (currentTime2 - startTime2 >= 2000) { // 2 seconds
-              // Toggle back to the original kathisma
-              kathisma.outerHTML = kathismas[index].outerHTML;
-              kathisma.style.display = 'block'; // ensure the toggled element is visible
-            }
-          }, 2000); // 2 seconds
-
-          kathisma.addEventListener('touchend', () => {
-            clearTimeout(timer2);
-          });
-        });
-      }
-    }, 2000); // 2 seconds
-
-    kathisma.addEventListener('touchend', () => {
-      clearTimeout(timer);
-    });
-  });
+   kathisma.addEventListener('touchend', () => {
+     clearTimeout(timer);
+   });
+ });
 });
-
 
 
 
