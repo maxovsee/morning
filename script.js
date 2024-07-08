@@ -51,11 +51,6 @@ kanons.forEach((kanon, index) => {
 });
 
 
-
-
-// подмена кафизмы толкованием
-А это единственнь правильно работающий экземпляр с заменой кафизм на толкования: 
-
 // подмена кафизмы толкованием
 const kathismas = document.querySelectorAll('.kathisma');
 const kathismasTolk = document.querySelectorAll('.kathisma-tolk');
