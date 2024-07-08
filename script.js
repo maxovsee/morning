@@ -40,7 +40,7 @@
   const kanons = document.querySelectorAll('.kanon');
 let currentDay = new Date().getDate(); // 1-31
 
-let startIndex = (currentDay) % kanons.length;
+let startIndex = (currentDay - 1) % kanons.length;
 
 kanons.forEach((kanon, index) => {
   if (index === startIndex) {
