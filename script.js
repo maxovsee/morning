@@ -99,17 +99,29 @@ function handleTouchMove(evt) {
 
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
-const today = new Date();
-const dayOfYear = today.getDate();
+let currentDay = 0;
 
-let kathismaIndex = dayOfYear % kathismas.length;
-kathismas.forEach((kathisma, index) => {
-  if (index === kathismaIndex) {
-    kathisma.style.display = 'block';
-  } else {
-    kathisma.style.display = 'none';
-  }
-});
+function showKathisma() {
+  kathismas.forEach((kathisma, index) => {
+    if (index === currentDay) {
+      kathisma.style.display = 'block';
+    } else {
+      kathisma.style.display = 'none';
+    }
+  });
+  currentDay = (currentDay + 1) % kathismas.length;
+  
+  // Schedule the next update at 12 am
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0); // 12 am
+  const delay = tomorrow.getTime() - new Date().getTime();
+  setTimeout(showKathisma, delay);
+}
+
+// Show the first kathisma initially
+showKathisma();
+
 
 
 
