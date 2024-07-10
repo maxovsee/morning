@@ -103,7 +103,7 @@ function handleTouchMove(evt) {
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
 const today = new Date();
-const dayOfYear = today.getDate() + (today.getMonth() * 30 - 1); // rough estimate, adjust as needed
+const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000); // rough estimate, adjust as needed
 
 kathismas.forEach((kathisma, index) => {
  if (index === dayOfYear % kathismas.length) {
