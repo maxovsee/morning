@@ -118,13 +118,13 @@ kathismas.forEach((kathisma, index) => {
 
    timer = setTimeout(() => {
      const currentTime = new Date().getTime();
-     if (currentTime - startTime >= 2000) { // 2 seconds
+     if (currentTime - startTime >= 5000) { // 5 seconds
        const kathismaTolkId = `kathisma-tolk-${index + 1}`;
        const kathismaTolkElement = document.getElementById(kathismaTolkId);
        kathisma.outerHTML = kathismaTolkElement.outerHTML;
        kathisma.style.display = 'block'; // ensure the swapped element is visible
      }
-   }, 2000); // 2 seconds
+   }, 5000); // 5 seconds
 
    kathisma.addEventListener('touchend', () => {
      clearTimeout(timer);
