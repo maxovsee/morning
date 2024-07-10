@@ -100,10 +100,9 @@ function handleTouchMove(evt) {
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
 const today = new Date();
-const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
+const dayOfYear = today.getDate();
 
-const kathismaIndex = dayOfYear % 20;
-
+let kathismaIndex = dayOfYear % kathismas.length;
 kathismas.forEach((kathisma, index) => {
   if (index === kathismaIndex) {
     kathisma.style.display = 'block';
@@ -111,6 +110,7 @@ kathismas.forEach((kathisma, index) => {
     kathisma.style.display = 'none';
   }
 });
+
 
 
 
