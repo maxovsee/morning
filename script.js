@@ -97,21 +97,21 @@ function handleTouchMove(evt) {
 };
 
 
-
-//And here’s the old one working displaying kathisma/day: 
-
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
 const today = new Date();
-const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000); // rough estimate, adjust as needed
+const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
+
+const kathismaIndex = dayOfYear % 20;
 
 kathismas.forEach((kathisma, index) => {
- if (index === dayOfYear % kathismas.length) {
-   kathisma.style.display = 'block';
- } else {
-   kathisma.style.display = 'none';
- }
+  if (index === kathismaIndex) {
+    kathisma.style.display = 'block';
+  } else {
+    kathisma.style.display = 'none';
+  }
 });
+
 
 
 
