@@ -98,10 +98,10 @@ function handleTouchMove(evt) {
 
 
 
-// подмена кафизмы толкованием
-const kathismas = document.querySelectorAll('.kathisma');
-const kathismasTolk = document.querySelectorAll('.kathisma-tolk');
+//And here’s the old one working displaying kathisma/day: 
 
+// кафизма в день
+const kathismas = document.querySelectorAll('.kathisma');
 const today = new Date();
 const dayOfYear = today.getDate() + (today.getMonth() * 30 - 1); // rough estimate, adjust as needed
 
@@ -111,25 +111,6 @@ kathismas.forEach((kathisma, index) => {
  } else {
    kathisma.style.display = 'none';
  }
-
- kathisma.addEventListener('touchstart', (e) => {
-   const startTime = new Date().getTime();
-   let timer;
-
-   timer = setTimeout(() => {
-     const currentTime = new Date().getTime();
-     if (currentTime - startTime >= 5000) { // 5 seconds
-       const kathismaTolkId = `kathisma-tolk-${index + 1}`;
-       const kathismaTolkElement = document.getElementById(kathismaTolkId);
-       kathisma.outerHTML = kathismaTolkElement.outerHTML;
-       kathisma.style.display = 'block'; // ensure the swapped element is visible
-     }
-   }, 5000); // 5 seconds
-
-   kathisma.addEventListener('touchend', () => {
-     clearTimeout(timer);
-   });
- });
 });
 
 
