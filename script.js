@@ -63,7 +63,7 @@ function showKathisma() {
     kathismaCount = (kathismaCount % 365) + 1; // assuming you have 365 kathismas
     showKathisma();
   }, 86400000); // 1 day in milliseconds
-}
+};
 
 showKathisma();
 
