@@ -51,21 +51,28 @@ kanons.forEach((kanon, index) => {
 });
 
 
-// кафизма в день
-let kathismaCount = 11;
+const kathismaContainer = document.getElementById('kathisma-container');
+const kathismas = kathismaContainer.children;
+let currentKathismaIndex = 0;
 
-function showKathisma() {
-  const kathismaElement = document.getElementById(`kathisma-${kathismaCount}`);
-  kathismaElement.style.display = 'block';
+function showNextKathisma() {
+  // hide all kathismas
+  Array.prototype.forEach.call(kathismas, (kathisma) => {
+    kathisma.style.display = 'none';
+  });
 
-  setTimeout(() => {
-    kathismaElement.style.display = 'none';
-    kathismaCount = (kathismaCount % 20) + 1; // assuming you have 365 kathismas
-    showKathisma();
-  }, 86400000); // 1 day in milliseconds
-};
+  // show the next kathisma
+  kathismas[currentKathismaIndex].style.display = 'block';
 
-showKathisma();
+  // increment the index, wrapping around to 0 when we reach the end
+  currentKathismaIndex = (currentKathismaIndex + 1) % kathismas.length;
+}
+
+// show the first kathisma initially
+showNextKathisma();
+
+// show the next kathisma every day
+setInterval(showNextKathisma, 24 * 60 * 60 * 1000); // 24 hours
 
 
 
