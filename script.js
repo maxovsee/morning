@@ -54,7 +54,7 @@ kanons.forEach((kanon, index) => {
 // кафизма в день
 const kathismaContainer = document.getElementById('kathisma-container');
 const kathismas = kathismaContainer.children;
-let currentKathismaIndex = 11;
+let currentKathismaIndex = 0;
 
 function showNextKathisma() {
   // hide all kathismas
