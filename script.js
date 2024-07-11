@@ -99,18 +99,17 @@ function handleTouchMove(evt) {
 
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
-const today = new Date();
-const dayOfYear = today.getDate() + (today.getMonth() * 30 - 1); // rough estimate, adjust as needed
+let currentDayKathisma = new Date().getDate(); // 1-31
+
+let startIndexKathisma = (currentDay) % kathismas.length;
 
 kathismas.forEach((kathisma, index) => {
- if (index === dayOfYear % kathismas.length) {
+ if (index === startIndexKathisma) {
    kathisma.style.display = 'block';
  } else {
    kathisma.style.display = 'none';
  }
 });
-
-
 
 
 
