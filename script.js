@@ -60,7 +60,7 @@ function showKathisma() {
 
   setTimeout(() => {
     kathismaElement.style.display = 'none';
-    kathismaCount = (kathismaCount % 365) + 1; // assuming you have 365 kathismas
+    kathismaCount = (kathismaCount % 20) + 1; // assuming you have 365 kathismas
     showKathisma();
   }, 86400000); // 1 day in milliseconds
 };
