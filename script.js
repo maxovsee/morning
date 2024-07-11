@@ -101,7 +101,7 @@ function handleTouchMove(evt) {
 const kathismas = document.querySelectorAll('.kathisma');
 let currentDayKathisma = new Date().getDate(); // 1-31
 
-let startIndexKathisma = (currentDay) % kathismas.length;
+let startIndexKathisma = (currentDayKathisma) % kathismas.length;
 
 kathismas.forEach((kathisma, index) => {
  if (index === startIndexKathisma) {
