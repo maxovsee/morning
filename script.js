@@ -52,7 +52,7 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-let kathismaCount = 12;
+let kathismaCount = 1;
 
 function showKathisma() {
   const kathismaElement = document.getElementById(`kathisma-${kathismaCount}`);
