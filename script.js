@@ -98,18 +98,20 @@ function handleTouchMove(evt) {
 
 
 // кафизма в день
-const kathismas = document.querySelectorAll('.kathisma');
-let currentDayKathisma = new Date().getDate(); // 1-31
+let kathismaCount = 1;
 
-let startIndexKathisma = (currentDayKathisma) % kathismas.length;
+function showKathisma() {
+  const kathismaElement = document.getElementById(`kathisma-${kathismaCount}`);
+  kathismaElement.style.display = 'block';
 
-kathismas.forEach((kathisma, index) => {
- if (index === startIndexKathisma) {
-   kathisma.style.display = 'block';
- } else {
-   kathisma.style.display = 'none';
- }
-});
+  setTimeout(() => {
+    kathismaElement.style.display = 'none';
+    kathismaCount = (kathismaCount % 365) + 1; // assuming you have 365 kathismas
+    showKathisma();
+  }, 86400000); // 1 day in milliseconds
+}
+
+showKathisma();
 
 
 
