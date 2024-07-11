@@ -98,7 +98,7 @@ function handleTouchMove(evt) {
 
 
 // кафизма в день
-let kathismaCount = 1;
+let kathismaCount = 12;
 
 function showKathisma() {
   const kathismaElement = document.getElementById(`kathisma-${kathismaCount}`);
