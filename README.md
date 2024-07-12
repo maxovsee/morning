@@ -1,4 +1,4 @@
-<div id="kathisma-container">
+
   <div class="kathisma" id="kathisma-1"> 
     <h2>Кафи́сма пе́рвая</h2> 
   </div>
@@ -59,4 +59,3 @@
   <div class="kathisma" id="kathisma-20"> 
     <h2>Кафи́сма двадца́тая</h2> 
   </div>
-</div>
