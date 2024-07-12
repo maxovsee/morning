@@ -54,7 +54,7 @@ kanons.forEach((kanon, index) => {
 // кафизма в день
 let kathismaElements = document.querySelectorAll('.kathisma');
 
-let currentDayKathisma = 0;
+let currentDayKathisma = 11;
 
 let startIndexKathisma = 11; // start from the 12th element (index 11)
 
