@@ -52,29 +52,33 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-const kathismaContainer = document.getElementById('kathisma-container');
-const kathismas = kathismaContainer.children;
-let currentKathismaIndex = 0;
+const kathismas = document.querySelectorAll('.kathisma');
 
-function showNextKathisma() {
-  // hide all kathismas
-  Array.prototype.forEach.call(kathismas, (kathisma) => {
-    kathisma.style.display = 'none';
-  });
+        // Initialize index to the 12th kathisma (adjust as needed)
+        let currentIndex = 11;
 
-  // show the next kathisma
-  kathismas[currentKathismaIndex].style.display = 'block';
+        // Function to show the current kathisma and hide others
+        function showCurrentKathisma() {
+            kathismas.forEach((kathisma, index) => {
+                if (index === currentIndex) {
+                    kathisma.style.display = 'block';
+                } else {
+                    kathisma.style.display = 'none';
+                }
+            });
+        }
 
-  // increment the index, wrapping around to 0 when we reach the end
-  currentKathismaIndex = (currentKathismaIndex + 1) % kathismas.length;
-}
+        // Show the initial kathisma
+        showCurrentKathisma();
 
-// show the first kathisma initially
-showNextKathisma();
+        // Rotate to the next kathisma every day (adjust the interval as needed)
+        setInterval(rotateKathisma, 24 * 60 * 60 * 1000); // 24 hours
 
-// show the next kathisma every day
-setInterval(showNextKathisma, 24 * 60 * 60 * 1000); // 24 hours
-
+        // Function to rotate to the next kathisma
+        function rotateKathisma() {
+            currentIndex = (currentIndex + 1) % kathismas.length;
+            showCurrentKathisma();
+        }
 
 
 
