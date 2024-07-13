@@ -52,21 +52,3 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-let kathismaElements = document.querySelectorAll('.kathisma');
-let currentDayKathisma = 11; // start with the 12th kathisma (index 11)
-
-function showKathisma() {
-  kathismaElements.forEach((element, index) => {
-    if (index === currentDayKathisma % kathismaElements.length) {
-      element.style.display = 'block';
-    } else {
-      element.style.display = 'none';
-    }
-  });
-
-  currentDayKathisma = (currentDayKathisma + 1) % kathismaElements.length;
-
-  setTimeout(showKathisma, 24 * 60 * 60 * 1000); // wait 24 hours
-}
-
-showKathisma();
