@@ -52,13 +52,3 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-const kathismas = document.querySelectorAll('.kathisma');
-const todayKathisma = new Date().getDate() % 20; // assuming you want to cycle through 20 kathismas
-
-kathismas.forEach((kathisma, index) => {
-  if (index === todayKathisma - 1) {
-    kathisma.style.display = 'block';
-  } else {
-    kathisma.style.display = 'none';
-  }
-});
