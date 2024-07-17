@@ -73,3 +73,26 @@ function renderJsonData() {
     jsonDataElement.appendChild(listItem);
   });
 }
+// имена о упокоении
+const jsonDataElementoupokoyenii = document.getElementById('oupokoyenii-json');
+let jsonDataoupokoyenii = [];
+
+// Load JSON data from file (assuming it's named data.json)
+fetch('Oupokoyenii.json')
+  .then(response => response.json())
+  .then(data => {
+    jsonDataoupokoyenii = data;
+    renderJsonData();
+  });
+
+function renderJsonData() {
+  jsonDataElement.innerHTML = '';
+  jsonData.forEach((item, index) => {
+    const listItemoupokoyenii = document.createElement('li');
+    listItemoupokoyenii.textContent = item;
+    jsonDataElement.appendChild(listItemoupokoyenii);
+  });
+}
+
+
+
