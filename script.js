@@ -74,25 +74,24 @@ function renderJsonData() {
   });
 }
 // имена о упокоении
-const jsonDataElementoupokoyenii = document.getElementById('oupokoyenii-json');
-let jsonDataoupokoyenii = [];
+const oupokoyeniiList = document.getElementById('oupokoyenii-json');
+let oupokoyeniiData = [];
 
-// Load JSON data from file (assuming it's named data.json)
-fetch('Oupokoyenii.json')
+// Load JSON data from file (assuming it's named oupokoyenii.json)
+fetch('oupokoyenii.json')
   .then(response => response.json())
   .then(data => {
-    jsonDataoupokoyenii = data;
-    renderJsonData();
+    oupokoyeniiData = data;
+    renderOupokoyeniiList();
   });
 
-function renderJsonData() {
-  jsonDataElement.innerHTML = '';
-  jsonData.forEach((item, index) => {
-    const listItemoupokoyenii = document.createElement('li');
-    listItemoupokoyenii.textContent = item;
-    jsonDataElement.appendChild(listItemoupokoyenii);
+function renderOupokoyeniiList() {
+  oupokoyeniiList.innerHTML = '';
+  oupokoyeniiData.forEach((item, index) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    oupokoyeniiList.appendChild(listItem);
   });
 }
-
 
 
