@@ -54,39 +54,14 @@ kanons.forEach((kanon, index) => {
 // кафизма в день
 
 // имена о здравии
-const jsonDataElement = document.getElementById('json-data');
-const newItemInput = document.getElementById('new-item');
-const addItemButton = document.getElementById('add-item');
-let jsonData = [];
-// Load JSON data from file (assuming it's named data.json)
-fetch('data.json')
- .then(response => response.json())
- .then(data => {
-   jsonData = data;
-   renderJsonData();
- });
-addItemButton.addEventListener('click', (e) => {
- e.preventDefault();
- const newItem = newItemInput.value.trim();
- if (newItem) {
-   jsonData.push(newItem);
-   renderJsonData();
-   updateJsonFile();
-   newItemInput.value = '';
- }
-});
-function renderJsonData() {
- jsonDataElement.innerHTML = '';
- jsonData.forEach((item, index) => {
-   const listItem = document.createElement('li');
-   listItem.textContent = item;
-   jsonDataElement.appendChild(listItem);
- });
-}
-function updateJsonFile() {
- const jsonDataString = JSON.stringify(jsonData);
- const xhr = new XMLHttpRequest();
- xhr.open('PUT', 'data.json', true);
- xhr.setRequestHeader('Content-Type', 'application/json');
- xhr.send(jsonDataString);
-}
+fetch('Ozdravii.json')
+      .then(response => response.json())
+      .then(data => {
+        const ozdraviiList = document.getElementById("ozdravii-list");
+        data.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          ozdraviiList.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Error loading JSON file:', error));
