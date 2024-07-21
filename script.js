@@ -15,14 +15,11 @@ window.addEventListener("scroll", function() {
     button.style.bottom = "20px";
     button.style.display = "block"; // show the button
     button.classList.remove("scrolling");
-  } else if (windowHeight >= documentHeight) {
+  } else {
     button.style.display = "block"; // show the button
     button.classList.add("scrolling");
   }
-    else {
-    button.style.display = "block"; // show the button
-    button.classList.add("scrolling");
-  }
+    
 });
 
 function scrollToTopOrBottom() {
