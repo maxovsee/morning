@@ -1,28 +1,35 @@
    let button = document.getElementById("scroll-button");
-   let windowHeight = window.innerHeight;
-   let documentHeight = document.body.offsetHeight;
-   window.addEventListener("scroll", function() {
-     let scrollPosition = window.scrollY;
-     if (scrollPosition + windowHeight >= documentHeight) {
-       button.style.top = "20px";
-       button.style.bottom = "auto";
-       button.style.display = "block"; // show the button
-     } else if (scrollPosition <= 0) {
-       button.style.top = "auto";
-       button.style.bottom = "20px";
-       button.style.display = "block"; // show the button
-     } else {
-       button.style.display = "none"; // hide the button
-     }
-   });
-   function scrollToTopOrBottom() {
-     let scrollPosition = window.scrollY;
-     if (scrollPosition + windowHeight >= documentHeight) {
-       window.scrollTo({ top: 0, behavior: 'smooth' });
-     } else if (scrollPosition <= 0) {
-       window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
-     }
-   }
+let windowHeight = window.innerHeight;
+let documentHeight = document.body.offsetHeight;
+let isScrolling = false;
+
+window.addEventListener("scroll", function() {
+  let scrollPosition = window.scrollY;
+  if (scrollPosition + windowHeight >= documentHeight) {
+    button.style.top = "20px";
+    button.style.bottom = "auto";
+    button.style.display = "block"; // show the button
+    button.classList.remove("scrolling");
+  } else if (scrollPosition <= 0) {
+    button.style.top = "auto";
+    button.style.bottom = "20px";
+    button.style.display = "block"; // show the button
+    button.classList.remove("scrolling");
+  } else {
+    button.style.display = "block"; // show the button
+    button.classList.add("scrolling");
+  }
+});
+
+function scrollToTopOrBottom() {
+  let scrollPosition = window.scrollY;
+  if (scrollPosition + windowHeight >= documentHeight) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (scrollPosition <= 0) {
+    window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
+  }
+}
+
   
   const mondayText = document.getElementById("monday-text");
 
