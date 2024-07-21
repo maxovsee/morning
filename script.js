@@ -24,12 +24,15 @@ window.addEventListener("scroll", function() {
 
 function scrollToTopOrBottom() {
   let scrollPosition = window.scrollY;
-  if (scrollPosition + windowHeight >= documentHeight) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else if (scrollPosition <= 0) {
-    window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
+  if (!button.classList.contains("scrolling")) {
+    if (scrollPosition + windowHeight >= documentHeight) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (scrollPosition <= 0) {
+      window.scrollTo({ top: documentHeight - windowHeight, behavior: 'smooth' });
+    }
   }
 }
+
 
   
   const mondayText = document.getElementById("monday-text");
