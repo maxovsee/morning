@@ -15,7 +15,7 @@ window.addEventListener("scroll", function() {
     button.style.bottom = "20px";
     button.style.display = "block"; // show the button
     button.classList.remove("scrolling");
-  } else {
+  } else if (scrollPosition + windowHeight >= documentHeight) {
     button.style.display = "block"; // show the button
     button.classList.add("scrolling");
   }
