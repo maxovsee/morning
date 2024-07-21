@@ -14,9 +14,16 @@
      h1, h2, h3 { font-weight: bold; }    
      
      .fixed-button {
-     position: fixed;
-     right: 20px;
-     } 
+  position: fixed;
+  right: 20px;
+  opacity: 1; /* Initial opacity */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.fixed-button.scrolling {
+  opacity: 0.5; /* Reduced opacity when scrolling */
+}
+
 
 
 /* Add any necessary CSS styles for your kathismas */
