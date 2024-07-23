@@ -16,12 +16,10 @@
      h1, h2, h3 { 
         font-weight: bold; 
         text-shadow:
-    1px 1px #e3061f,
-
-    2px 2px #ffed00,
-    
-    3px 3px #009fe3,
-    
+    -1px 1px #e3061f,
+    0 0 #e3061f,
+    1px -0.5px #ffed00,
+    -0.5px 1px #009fe3;
     }    
      
      .fixed-button {
