@@ -54,7 +54,7 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-fetch('https://github.com/maxovsee/morning/blob/main/kathismas.txt')
+fetch('https://raw.githubusercontent.com/maxovsee/morning/main/kathismas.txt')
       .then(response => response.text())
       .then(data => {
         const parser = new DOMParser();
