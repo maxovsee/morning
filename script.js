@@ -54,16 +54,14 @@ kanons.forEach((kanon, index) => {
 
 
 // кафизма в день
-const kathismas = document.querySelectorAll('.kathisma');
-let currentDayKathisma = new Date().getDate(); // 1-31
-
-kathismas.forEach((kathisma, index) => {
-  if ((index + 1) === (currentDayKathisma % 20 + 1)) {
-    kathisma.style.display = 'block';
-  } else {
-    kathisma.style.display = 'none';
-  }
-});
+const kathismaContainer = document.getElementById('kathisma-container'); 
+fetch('kathismas.txt') .then(response => response.text()) 
+  .then(data => { 
+  const parser = new DOMParser(); 
+  const doc = parser.parseFromString(data, 'application/xml'); 
+  const kathismas = doc.querySelectorAll('.kathisma'); 
+  kathismas.forEach((kathisma, index) => { 
+    if ((index + 1) === (new Date().getDate() % 20 + 1)) { kathismaContainer.appendChild(kathisma); } }); }) .catch(error => console.error('Error:', error));
 
 
 // имена о здравии
