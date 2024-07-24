@@ -55,10 +55,10 @@ kanons.forEach((kanon, index) => {
 
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
-let currentDay = new Date().getDate(); // 1-31
+let currentDayKathisma = new Date().getDate(); // 1-31
 
 kathismas.forEach((kathisma, index) => {
-  if ((index + 1) === (currentDay % 20 + 1)) {
+  if ((index + 1) === (currentDayKathisma % 20 + 1)) {
     kathisma.style.display = 'block';
   } else {
     kathisma.style.display = 'none';
