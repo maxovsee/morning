@@ -55,24 +55,23 @@ kanons.forEach((kanon, index) => {
 
 // кафизма в день
 fetch('https://github.com/maxovsee/morning/blob/main/kathismas.txt')
-  .then(response => response.text())
-  .then(data => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, 'text/html');
-    const kathismas = doc.querySelectorAll('.kathisma');
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+        const kathismas = doc.querySelectorAll('.kathisma');
 
-    let currentDayKathisma = new Date().getDate(); // 1-31
+        let currentDayKathisma = new Date().getDate(); // 1-31
 
-    kathismas.forEach((kathisma, index) => {
-      if ((index + 1) === (currentDayKathisma % 20 + 1)) {
-        kathisma.style.display = 'block';
-      } else {
-        kathisma.style.display = 'none';
-      }
-    });
-  })
-  .catch(error => console.error('Error:', error));
+        const container = document.getElementById('kathisma-container');
 
+        kathismas.forEach((kathisma, index) => {
+          if ((index + 1) === (currentDayKathisma % 20 + 1)) {
+            container.appendChild(kathisma);
+          }
+        });
+      })
+      .catch(error => console.error('Error:', error));
 
 // имена о здравии
 const jsonDataElement = document.getElementById('json-data');
