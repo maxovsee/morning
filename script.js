@@ -56,7 +56,7 @@ kanons.forEach((kanon, index) => {
 const glavas = document.querySelectorAll('.yevangelie');
 let currentDayYevangeliye = new Date().getDate(); // 1-31
  
-glavas.forEach((yevangeliye, index) => {
+glavas.forEach((yevangelie, index) => {
   if ((index + 1) === (currentDayYevangeliye % 20 + 1)) {
     yevangie.style.display = 'block';
   } else {
