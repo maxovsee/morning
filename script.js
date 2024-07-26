@@ -54,18 +54,18 @@ kanons.forEach((kanon, index) => {
 
 
 // глава Евангелие в день
-const glavy = document.querySelectorAll('.glava');
-let currentDayYevangelie = new Date().getDate(); // 1-31
-
-let startIndexYevangelie = (currentDayYevangelie) % glavy.length;
+let lastIndexYevangelie = localStorage.getItem('lastIndexYevangelie') || 0; let startIndexYevangelie = (lastIndexYevangelie + currentDayYevangelie) % glavy.length;
+let nextIndexYevangelie = (startIndexYevangelie + 1) % glavy.length;
 
 glavy.forEach((glava, index) => {
- if (index === startIndexYevangelie) {
+ if (index === startIndexYevangelie || index === nextIndexYevangelie) {
    glava.style.display = 'block';
  } else {
    glava.style.display = 'none';
  }
 });
+
+localStorage.setItem('lastIndexYevangelie', startIndexYevangelie);
 
 
 // кафизма в день
