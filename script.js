@@ -65,6 +65,12 @@ glavy.forEach((glava, index) => {
  } else {
    glava.style.display = 'none';
  }
+glavy.forEach((glava, index + 1) => {
+ if (index === startIndexYevangelie) {
+   glava.style.display = 'block';
+ } else {
+   glava.style.display = 'none';
+ }
 });
 
 
