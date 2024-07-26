@@ -52,16 +52,19 @@ kanons.forEach((kanon, index) => {
  }
 });
 
+
 // глава Евангелие в день
-const glavas = document.querySelectorAll('.yevangelie');
-let currentDayYevangeliye = new Date().getDate(); // 1-31
- 
-glavas.forEach((yevangelie, index) => {
-  if ((index + 1) === (currentDayYevangeliye % 20 + 1)) {
-    yevangie.style.display = 'block';
-  } else {
-    yevangelie.style.display = 'none';
-  }
+const glavy = document.querySelectorAll('.glava');
+let currentDayYevangelie = new Date().getDate(); // 1-31
+
+let startIndexYevangelie = (currentDayYevangelie) % glavy.length;
+
+glavy.forEach((glava, index) => {
+ if (index === startIndexYevangelie) {
+   glava.style.display = 'block';
+ } else {
+   glava.style.display = 'none';
+ }
 });
 
 
