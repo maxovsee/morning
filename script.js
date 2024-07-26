@@ -53,20 +53,14 @@ kanons.forEach((kanon, index) => {
 });
 
 // глава Евангелие в день
-const yevangelies = document.querySelectorAll('.yevangelie');
-let currentDay = new Date().getDate(); // 1-31
-
-yevangelies.forEach((yevangelie, index) => {
-  yevangelie.style.display = 'none';
-});
-
-let currentDayKathisma = (currentDay - 1) % 20 + 1;
-
-yevangelies.forEach((yevangelie, index) => {
-  if (index === currentDayKathisma - 1) {
-    yevangelie.style.display = 'block';
+const glavas = document.querySelectorAll('.yevangeliye');
+let currentDayYevangeliye = new Date().getDate(); // 1-31
+ 
+glavas.forEach((yevangeliye, index) => {
+  if ((index + 1) === (currentDayYevangeliye % 20 + 1)) {
+    yevangiye.style.display = 'block';
   } else {
-    yevangelie.style.display = 'none';
+    yevangeliye.style.display = 'none';
   }
 });
 
