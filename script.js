@@ -52,8 +52,25 @@ kanons.forEach((kanon, index) => {
  }
 });
 
+// глава Евангелие в день
+const yevangelies = document.querySelectorAll('.yevangelie');
+let currentDay = new Date().getDate(); // 1-31
 
-// кафизма в день
+yevangelies.forEach((yevangelie, index) => {
+  yevangelie.style.display = 'none';
+});
+
+let currentDayKathisma = (currentDay - 1) % 20 + 1;
+
+yevangelies.forEach((yevangelie, index) => {
+  if (index === currentDayKathisma - 1) {
+    yevangelie.style.display = 'block';
+  } else {
+    yevangelie.style.display = 'none';
+  }
+});
+
+
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
 let currentDayKathisma = new Date().getDate(); // 1-31
