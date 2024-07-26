@@ -54,7 +54,8 @@ kanons.forEach((kanon, index) => {
 
 
 // глава Евангелие в день
-let lastIndexYevangelie = localStorage.getItem('lastIndexYevangelie') || 0; let startIndexYevangelie = (lastIndexYevangelie + currentDayYevangelie) % glavy.length;
+let lastIndexYevangelie = localStorage.getItem('lastIndexYevangelie') || 0; 
+let startIndexYevangelie = (lastIndexYevangelie + currentDayYevangelie) % glavy.length;
 let nextIndexYevangelie = (startIndexYevangelie + 1) % glavy.length;
 
 glavy.forEach((glava, index) => {
