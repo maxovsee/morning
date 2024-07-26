@@ -65,8 +65,8 @@ glavy.forEach((glava, index) => {
  } else {
    glava.style.display = 'none';
  }
-glavy.forEach((glava, index + 1) => {
- if (index === startIndexYevangelie) {
+glavy.forEach((glava +1, index) => {
+ if (index === startIndexYevangelie + 1) {
    glava.style.display = 'block';
  } else {
    glava.style.display = 'none';
