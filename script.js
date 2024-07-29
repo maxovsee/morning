@@ -124,12 +124,12 @@ function renderOupokoyeniiList() {
 
 // Пролог
 const linkBase = "https://azbyka.ru/otechnik/Viktor_Gurev/prolog-v-pouchenijah-na-kazhdyj-den-goda/";
-let startDate = new Date("2024-07-29"); // adjust the start date as needed
+let startDate = new Date("2023-01-01"); // adjust the start date as needed
 let currentDate = new Date();
 let dayDiff = Math.floor((currentDate - startDate) / (1000 * 3600 * 24));
-let dailyLinkNumber = (393 + dayDiff) % 53; // 53 is the range (445 - 393 + 1)
-if (dailyLinkNumber === 0) {
-  dailyLinkNumber = 1;
+let dailyLinkNumber = (dayDiff % 53) + 393;
+if (dailyLinkNumber > 445) {
+  dailyLinkNumber = dailyLinkNumber - 445 + 1;
 }
 let dailyLink = linkBase + dailyLinkNumber;
 
