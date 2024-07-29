@@ -120,3 +120,15 @@ function renderOupokoyeniiList() {
    oupokoyeniiList.appendChild(listItem);
  });
 }
+
+
+// Пролог
+const linkBase = "https://azbyka.ru/otechnik/Viktor_Gurev/prolog-v-pouchenijah-na-kazhdyj-den-goda/";
+let currentDate = new Date();
+let dayOfYear = currentDate.getDate();
+let dailyLink = linkBase + dayOfYear;
+
+const linkElement = document.createElement("a");
+linkElement.href = dailyLink;
+linkElement.textContent = dailyLink;
+document.getElementById("daily-link").appendChild(linkElement);
