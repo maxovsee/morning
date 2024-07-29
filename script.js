@@ -67,6 +67,20 @@ glavy.forEach((glava, index) => {
  }
 });
 
+// глава Aпостола в день
+const glavyApostol = document.querySelectorAll('.deyaniya');
+let currentDayDeyaniya = new Date().getDate(); // 1-31
+
+let startIndexDeyaniya = (currentDayDeyaniya) % glavyApostol.length;
+
+glavyApostol.forEach((deyaniya, index) => {
+ if (index === startIndexDeyaniya) {
+   deyaniya.style.display = 'block';
+ } else {
+   deyaniya.style.display = 'none';
+ }
+});
+
 // кафизма в день
 const kathismas = document.querySelectorAll('.kathisma');
 let currentDayKathisma = new Date().getDate(); // 1-31
