@@ -5,10 +5,12 @@ let button = document.getElementById("scroll-button");
     let scrollPosition = window.scrollY;
     if (scrollPosition + windowHeight >= documentHeight) {
       button.style.top = "20px";
+      button.innerHTML = "Вверх"
       button.style.bottom = "auto";
       button.style.display = "block"; // show the button
     } else if (scrollPosition <= 0) {
       button.style.top = "auto";
+      button.innerHTML = "Вниз"
       button.style.bottom = "20px";
       button.style.display = "block"; // show the button
     } else {
