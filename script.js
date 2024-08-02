@@ -67,6 +67,28 @@ glavy.forEach((glava, index) => {
  }
 });
 
+
+const bibleJsonUrl = 'bible.json';
+
+fetch(bibleJsonUrl)
+  .then(response => response.json())
+  .then(verses => {
+    let currentChapterIndex = 0;
+
+    function showDailyVerse() {
+      const dailyVerseElement = document.getElementById("daily-verse");
+      const currentChapter = verses[currentChapterIndex];
+      const chapterText = currentChapter.verses.map(verse => `${verse.verse}. ${verse.text}`).join("\n");
+      dailyVerseElement.innerText = `${currentChapter.book} ${currentChapter.chapter}\n${chapterText}`;
+      currentChapterIndex = (currentChapterIndex + 1) % verses.length;
+    }
+
+    showDailyVerse();
+
+    // If you want to update the verse every day, you can use a timer
+    // setInterval(showDailyVerse, 24 * 60 * 60 * 1000); // update every 24 hours
+  })
+  .catch(error => console.error('Error loading bible.json:', error));
 // глава Aпостола в день
 const glavyApostol = document.querySelectorAll('.deyaniya');
 let currentDayDeyaniya = new Date().getDate(); // 1-31
