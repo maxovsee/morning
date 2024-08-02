@@ -57,7 +57,7 @@ kanons.forEach((kanon, index) => {
 const glavy = document.querySelectorAll('.glava');
 let currentDayYevangelie = new Date().getDate(); // 1-31
 
-let startIndexYevangelie = (currentDayYevangelie) % glavy.length;
+let startIndexYevangelie = currentDayYevangelie % glavy.length;
 
 glavy.forEach((glava, index) => {
  if (index === startIndexYevangelie) {
