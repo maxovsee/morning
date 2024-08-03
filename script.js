@@ -54,6 +54,18 @@ kanons.forEach((kanon, index) => {
 
 
 // глава Евангелие в день
+const glavy = document.querySelectorAll('.glava');
+let currentDayYevangelie = new Date().getDate(); // 1-31
+
+let startIndexYevangelie = currentDayYevangelie % glavy.length;
+
+glavy.forEach((glava, index) => {
+ if (index === startIndexYevangelie) {
+   glava.style.display = 'block';
+ } else {
+   glava.style.display = 'none';
+ }
+});
 
 // глава Aпостола в день
 const glavyApostol = document.querySelectorAll('.deyaniya');
