@@ -39,6 +39,12 @@
 }
 
 @font-face {
- font-family: 'ChurchSlavonicFont';
- src: url('fonts/PonomarUnicode.otf') format('truetype');
+  font-family: 'fontawesome';
+  src:
+    url('fonts/fontawesome.ttf?k6zh4r') format('truetype'),
+    url('fonts/fontawesome.woff?k6zh4r') format('woff'),
+    url('fonts/fontawesome.svg?k6zh4r#fontawesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
