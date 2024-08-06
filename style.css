@@ -38,7 +38,7 @@
     display: none;
 }
 
-p {
-    font-family: 'Ponomar Unicode'; 
+@font-face {
+ font-family: 'ChurchSlavonicFont';
+ src: url('fonts/PonomarUnicode.otf') format('truetype');
 }
-
