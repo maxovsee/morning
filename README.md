@@ -1,4 +1,14 @@
+#json-data, #oupokoyenii-json {
+  column-count: 2; /* Change to 3 for three columns */
+  column-gap: 20px; /* Space between columns */
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
 
+#json-data li, #oupokoyenii-json li {
+  break-inside: avoid; /* Prevent items from breaking between columns */
+  margin-bottom: 10px; /* Space between list items */
+}    
   <div class="kathisma" id="kathisma-1"> 
     <h2>Кафи́сма пе́рвая</h2> 
   </div>
