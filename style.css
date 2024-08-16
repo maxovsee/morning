@@ -43,17 +43,17 @@ display: none;
 
 @font-face {
   font-family: 'PonomarUnicode';
-  src: url('/static/fonts/PonomarUnicode.otf') format('opentype');
+  src: url('/fonts/PonomarUnicode.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'OglavieUnicode';
-    src: url('/static/fonts/OglavieUnicode.otf') format('opentype');
+    src: url('/fonts/OglavieUnicode.otf') format('opentype');
   }
   
   
 @font-face {
     font-family: 'Vertograd Unicode';
-    src: url('/static/fonts/VertogradUnicode.otf') format('opentype');
+    src: url('/fonts/VertogradUnicode.otf') format('opentype');
   }
   
