@@ -1,226 +1,59 @@
-     body { 
-      text-align: center; 
-      font-family: "Times New Roman", sans-serif; 
-      /*background-color: AntiqueWhite; */ /* Add AntiqueWhite background color */
-      /*color: MidnightBlue;*/
-      -webkit-user-select: none; 
-      -moz-user-select: none; 
-      -ms-user-select: none; 
-      user-select: none;
-      trabsform: scale(1);
-      background:#dfdfdf;
-       
-     
-    } 
-     
-     h1, h2, h3 { 
-        font-weight: bold; 
-        text-shadow:
-     -1px 1px #e3061f,
-     -0.5px 1px #ffed00,
-     1px -0.5px #009fe3;
-    }    
-     
-     .fixed-button {
-     position: fixed;
-     right: 20px;
-     } 
+body { 
+  text-align: center; 
+  font-family: "Times New Roman", sans-serif; 
+  /*background-color: AntiqueWhite; */ /* Add AntiqueWhite background color */
+  /*color: MidnightBlue;*/
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+  transform: scale(1);
+  background:#dfdfdf;
+   
+ 
+} 
+ 
+ h1, h2, h3 { 
+    font-weight: normal; 
+     color: #B22222;
+}
+
+  h1 { font-size: 230%;
+         
+            color: #E34234;
+ font-family: 'Oglavie Unicode';
+ text-align: center;
+ font-weight: normal;
+ text-transform: uppercase;
+         }    
+ 
 
 
 
 /* Add any necessary CSS styles for your kathismas */
-       
+   
 .kathisma-tolk{
-     display: none;
+ display: none;
 }
 
 .kathisma{
-    display: none;
+display: none;
+}
+
+
+@font-face {
+  font-family: 'PonomarUnicode';
+  src: url('/static/fonts/PonomarUnicode.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Acathist';
-    src: url('../fonts/Acathist-Regular.eot');
-    src: url('../fonts/Acathist-Regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/Acathist-Regular.woff2') format('woff2'),
-	url('../fonts/Acathist-Regular.woff') format('woff'),
-	url('../fonts/Acathist-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cathisma Unicode';
-    src: url('../fonts/CathismaUnicode.eot');
-    src: url('../fonts/CathismaUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/CathismaUnicode.woff2') format('woff2'),
-	url('../fonts/CathismaUnicode.woff') format('woff'),
-	url('../fonts/CathismaUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Fedorovsk Unicode';
-    src: url('../fonts/FedorovskUnicode.eot');
-    src: url('../fonts/FedorovskUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/FedorovskUnicode.woff2') format('woff2'),
-	url('../fonts/FedorovskUnicode.woff') format('woff'),
-	url('../fonts/FedorovskUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Indiction Unicode';
-    src: url('../fonts/IndictionUnicode.eot');
-    src: url('../fonts/IndictionUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/IndictionUnicode.woff2') format('woff2'),
-	url('../fonts/IndictionUnicode.woff') format('woff'),
-	url('../fonts/IndictionUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Menaion Unicode';
-    src: url('../fonts/MenaionUnicode.eot');
-    src: url('../fonts/MenaionUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/MenaionUnicode.woff2') format('woff2'),
-	url('../fonts/MenaionUnicode.woff') format('woff'),
-	url('../fonts/MenaionUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Monomakh Unicode';
-    src: url('../fonts/MonomakhUnicode.eot');
-    src: url('../fonts/MonomakhUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/MonomakhUnicode.woff2') format('woff2'),
-	url('../fonts/MonomakhUnicode.woff') format('woff'),
-	url('../fonts/MonomakhUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Oglavie Unicode';
-    src: url('../fonts/OglavieUnicode.eot');
-    src: url('../fonts/OglavieUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/OglavieUnicode.woff2') format('woff2'),
-	url('../fonts/OglavieUnicode.woff') format('woff'),
-	url('../fonts/OglavieUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pochaevsk Unicode';
-    src: url('../fonts/PochaevskUnicode.eot');
-    src: url('../fonts/PochaevskUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/PochaevskUnicode.woff2') format('woff2'),
-	url('../fonts/PochaevskUnicode.woff') format('woff'),
-	url('../fonts/PochaevskUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pomorsky Unicode';
-    src: url('../fonts/PomorskyUnicode.eot');
-    src: url('../fonts/PomorskyUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/PomorskyUnicode.woff2') format('woff2'),
-	url('../fonts/PomorskyUnicode.woff') format('woff'),
-	url('../fonts/PomorskyUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Ponomar Unicode';
-    src: url('../fonts/PonomarUnicode.eot');
-    src: url('../fonts/PonomarUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/PonomarUnicode.woff2') format('woff2'),
-	url('../fonts/PonomarUnicode.woff') format('woff'),
-	url('../fonts/PonomarUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Shafarik';
-    src: url('../fonts/Shafarik-Regular.eot');
-    src: url('../fonts/Shafarik-Regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/Shafarik-Regular.woff2') format('woff2'),
-	url('../fonts/Shafarik-Regular.woff') format('woff'),
-	url('../fonts/Shafarik-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Vilnius Regular';
-    src: url('../fonts/Vilnius-Regular.eot');
-    src: url('../fonts/Vilnius-Regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/Vilnius-Regular.woff2') format('woff2'),
-	url('../fonts/Vilnius-Regular.woff') format('woff'),
-	url('../fonts/Vilnius-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Voskresensky';
-    src: url('../fonts/Voskresensky-Regular.eot');
-    src: url('../fonts/Voskresensky-Regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/Voskresensky-Regular.woff2') format('woff2'),
-	url('../fonts/Voskresensky-Regular.woff') format('woff'),
-	url('../fonts/Voskresensky-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Triodion Unicode';
-    src: url('../fonts/TriodionUnicode.eot');
-    src: url('../fonts/TriodionUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/TriodionUnicode.woff2') format('woff2'),
-	url('../fonts/TriodionUnicode.woff') format('woff'),
-	url('../fonts/TriodionUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
+    font-family: 'OglavieUnicode';
+    src: url('/static/fonts/OglavieUnicode.otf') format('opentype');
+  }
+  
+  
 @font-face {
     font-family: 'Vertograd Unicode';
-    src: url('../fonts/VertogradUnicode.eot');
-    src: url('../fonts/VertogradUnicode.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/VertogradUnicode.woff2') format('woff2'),
-	url('../fonts/VertogradUnicode.woff') format('woff'),
-	url('../fonts/VertogradUnicode.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FiraSlav';
-    src: url('../fonts/FiraSlav-Regular.eot');
-    src: url('../fonts/FiraSlav-Regular.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/FiraSlav-Regular.woff2') format('woff2'),
-	url('../fonts/FiraSlav-Regular.woff') format('woff'),
-	url('../fonts/FiraSlav-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FiraSlav';
-    src: url('../fonts/FiraSlav-Bold.eot');
-    src: url('../fonts/FiraSlav-Bold.eot?#iefix') format('embedded-opentype'),
-	url('../fonts/FiraSlav-Bold.woff2') format('woff2'),
-	url('../fonts/FiraSlav-Bold.woff') format('woff'),
-	url('../fonts/FiraSlav-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
+    src: url('/static/fonts/VertogradUnicode.otf') format('opentype');
+  }
+  
