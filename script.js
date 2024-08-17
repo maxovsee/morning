@@ -120,7 +120,7 @@ const oupokoyeniiList = document.getElementById('oupokoyenii-json');
 let oupokoyeniiData = [];
 
 // Load JSON data from file (assuming it's named oupokoyenii.json)
-fetch('Oupokoyenii.json?t=' + new Date().getTime())
+fetch('Oupokoyenii.json')
   .then(response => response.json())
   .then(data => {
     oupokoyeniiData = data;
