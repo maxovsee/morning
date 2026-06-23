@@ -135,7 +135,7 @@ function showImageForCurrentDay() {
 
 //Каноны
 const xhrKanons = new XMLHttpRequest();
-xhrKanons.open("GET", "/static/kanons.html", true);
+xhrKanons.open("GET", "/kanons.html", true);
 xhrKanons.onload = function () {
 	if (xhrKanons.status === 200) {
 		const parser = new DOMParser();
@@ -187,7 +187,7 @@ xhrKanons.send();
 
 //Kanons1
 const xhrKanons1 = new XMLHttpRequest();
-xhrKanons1.open("GET", "/static/kanons1.html", true);
+xhrKanons1.open("GET", "kanons1.html", true);
 xhrKanons1.onload = function () {
 	if (xhrKanons1.status === 200) {
 		const parser = new DOMParser();
@@ -241,7 +241,7 @@ xhrKanons1.send();
 
 // Кафизмы
 const xhrKathisma = new XMLHttpRequest();
-xhrKathisma.open("GET", "/static/kathismas.html", true);
+xhrKathisma.open("GET", "kathismas.html", true);
 xhrKathisma.onload = function () {
 	if (xhrKathisma.status === 200) {
 		const parser = new DOMParser();
@@ -1131,7 +1131,7 @@ prologContent.appendChild(lineBreak); // Append line break after the last anchor
 // последование Панихиды
 
 const xhrPanikhida = new XMLHttpRequest();
-xhrPanikhida.open("GET", "static/panikhida.html", true);
+xhrPanikhida.open("GET", "panikhida.html", true);
 xhrPanikhida.onload = function () {
 	if (xhrPanikhida.status === 200) {
 		const panikhidaContainer = document.getElementById(
@@ -1195,7 +1195,7 @@ xhrPanikhida.onload = function () {
 
 // Молитвы на сон грядущим
 const xhrPrayersNight = new XMLHttpRequest();
-xhrPrayersNight.open("GET", "static/prayersnight.html", true);
+xhrPrayersNight.open("GET", "prayersnight.html", true);
 xhrPrayersNight.onload = function () {
 	if (xhrPrayersNight.status === 200) {
 		const prayersNightContainer = document.getElementById(
