@@ -795,7 +795,7 @@ const jsonDataElement = document.getElementById("json-data");
 let jsonData = [];
 
 // Load JSON data from file (cache-busting query param)
-fetch("/Ozdravii.json?t=" + new Date().getTime())
+fetch("Ozdravii.json?t=" + new Date().getTime())
   .then((response) => response.json())
   .then((data) => {
     jsonData = data;
@@ -930,7 +930,7 @@ const oupokoyeniiList = document.getElementById("oupokoyenii-json");
 let oupokoyeniiData = [];
 
 // Load JSON data (cache-busting)
-fetch("/Oupokoyenii.json?t=" + new Date().getTime())
+fetch("Oupokoyenii.json?t=" + new Date().getTime())
   .then((response) => response.json())
   .then((data) => {
     oupokoyeniiData = data;
