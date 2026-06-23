@@ -135,7 +135,7 @@ function showImageForCurrentDay() {
 
 //Каноны
 const xhrKanons = new XMLHttpRequest();
-xhrKanons.open("GET", "/kanons.html", true);
+xhrKanons.open("GET", "kanons.html", true);
 xhrKanons.onload = function () {
 	if (xhrKanons.status === 200) {
 		const parser = new DOMParser();
