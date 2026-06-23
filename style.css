@@ -1,59 +1,321 @@
-body { 
-  text-align: center; 
-  font-family: "Times New Roman", sans-serif; 
-  /*background-color: AntiqueWhite; */ /* Add AntiqueWhite background color */
-  /*color: MidnightBlue;*/
-  -webkit-user-select: none; 
-  -moz-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none;
-  transform: scale(1);
-  background:#dfdfdf;
-   
- 
-} 
- 
- h1, h2, h3 { 
-    font-weight: normal; 
-     color: #B22222;
+body {
+	text-align: justify;
+	line-height: 1.7;
+	/*background-color: AntiqueWhite; */ /* Add AntiqueWhite background    color */
+	/*color: MidnightBlue;*/
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transform: scale(1);
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	/* background: #dfdfdf; /*white åletter */
+    background: white;
+    margin: 0.3em 1.1em 1.5em 1.1em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* a light beige color */
+    /* background: #964B00;*/ /*a warm brown color*/
+	/* margin: 0;*/ /* Remove default margin */  
 }
 
-  h1 { font-size: 230%;
-         
-            color: #E34234;
- font-family: 'Oglavie Unicode';
- text-align: center;
- font-weight: normal;
- text-transform: uppercase;
-         }    
- 
-
-
-
-/* Add any necessary CSS styles for your kathismas */
-   
-.kathisma-tolk{
- display: none;
+p {
+	/*font-size: 1.4em;*/
+  color: #080808; /*(a dark gray color) */
 }
 
-.kathisma{
+i.describing {
+	font-size: 1.0em;
+	text-align: right;
+	display: block; /* or inline-block */
+}
+
+.burger-menu {
+  line-height: 1.6; /* Adjust this value for more spacing */
+  position: relative; /* Ensure it’s properly positioned */
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.65rem;
+  
+  background-size: 125%; /* Ensures image covers without exceeding */
+  background-position: center; /* Center the image */
+  padding: 3em;
+  border: 1px solid #000;
+  border-radius: 2vmin;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden; /* Hide any overflow */
+}
+
+.burger-menu a {
+    display: inline-block; /* Allows for borders to wrap around links */
+    text-decoration: none;
+    color: #000080;
+    line-height: 1.6; /* Adjust for spacing */
+    border: 1px solid #000; /* Border color and width */
+    border-radius: 3px; /* Rounded corners */
+    padding: 2px 2px; /* Add padding for spacing inside the frame */
+    margin-bottom: 2px; /* Space between items */
+	margin-top: 2px; /* Space between items */
+    transition: background-color 0.3s; /* Optional: smooth transition for hover effect */
+}
+
+.burger-menu a:hover {
+    background-color: #f0f0f0; /* Optional: background change on hover */
+}
+
+.burger-menu div {
+    line-height: 1.6; /* Ensures spacing for divs as well */
+	margin-bottom: 2px; /* Space between items */
+	margin-top: 2px; /* Space between items */
+	padding: 2px 2px; /* Add padding for spacing inside the frame */
+	display: inline-block; /* Allows for borders to wrap around links */
+	color: #000080;
+}
+
+.settings {
+  cursor: pointer;
+}
+
+.settings:hover {
+  color: #337ab7;
+  /* or */
+  /* filter: invert(1); */
+}
+ 
+.oglavlenieContainer {
+  font-size: 1.0em;
+  display: inline-block;
+}
+
+h1 {
+	font-size: 200%;
+	color: #c82d2d;
+	font-family: "CathismaUnicode", "OglavieUnicode", Georgia;
+	text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+h2,
+h3 {
+	/* color: #c82d2d; */
+	text-align: center;
+}
+.hidden {
+  display: none;
+  background-color: red;
+}
+body,
+button {
+	font-family: "TriodionUnicode", "PonomarUnicode", "B52";
+}
+.dropinitial {
+	float: left;
+	line-height: 1em;
+	color: #c82d2d;
+	font-size: 4.0em;
+	font-family: "Vertograd Unicode";
+	margin: 7px 10px 0px 0px;
+	text-indent: 0em;
+}
+p:has(span.dropinitial) {
+	text-align: justify;
+	line-height: 1.7;
+}
+.oglavlenie {
+	font-size: 200%;
+	display: inline;
+	width: 95%;
+	font-family: "AncientKyivNormal", "League Gothic", "Myriad Pro Condensed",
+		"Arial Narrow", sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	color: #c82d2d;
+	
+}
+.calendar-container {
+    position: absolute;
+    left: 7vmin;
+    right: 7vmin;
+    display: flex;
+    justify-content: space-between;
+    max-width: 95%;
+    overflow: hidden; /* Prevent horizontal scrollbar */
+    box-sizing: border-box; /* Include padding/borders in width calculation */
+}
+.calendar {
+    flex: 1; /* Allows each calendar to take equal space */
+    min-width: 0; /* Prevents overflow due to long content */
+    white-space: nowrap; /* Prevents text wrapping */
+    text-align: center; /* Center-align text inside the calendar spans */
+}
+
+.upTop,
+.pravilakhristian {
+	color: inherit;
+	text-decoration: none;
+}
+.colours {
+	color: #c82d2d;
+}
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+/* Styles for elements when the screen is in portrait mode */
+@media only screen and (orientation: portrait) {
+	.morning h3 {
+		font-size: 2.3em;
+	}
+	.david {
+		width: 400px;
+		height: auto;
+	}
+	.morning,
+	#json-data,
+	.kanon-container,
+	.kanon-container1,
+	.kathisma-container,
+	.scripture1,
+	.apostle1,
+	.scripture2,
+	.apostle2 {
+		max-width: 90vw;
+
+		margin: 20 auto;
+
+		line-height: 1.5;
+	}
+}
+.highlighted {
+  background-color: #c9c3e6; /* or any other darker color you prefer */
+ border-radius: 2vmin;
+}
+
+.popup, .list-button {
+  transition: opacity 0.2s, transform 0.2s;
+}
+.menu-item {
+  line-height: 1.8;
+}
+.unhighlight-button {
+  margin-right: 10px;
+}
+/*молитвы о здравии и Святым*/
+.saints-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.saints-left, .saints-right {
+  width: 45%;
+}
+.prayer-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.living-left, .living-right {
+  width: 45%;
+}
+.helpers-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.helpers-left, .helpers-right {
+  width: 45%;
+}
+.back-ground {
+  max-width: 100%; /* Set the width to 100% of the viewport width */
+  height: auto; /* Set the height to auto, so the image maintains its aspect ratio */
+  object-fit: contain; /* Scale the image to fit within the viewport, maintaining its aspect ratio */
+  border-radius: 2em;
+}
+/* Общая прозрачность */
+.glass-effect {
+  backdrop-filter: blur(10px);  
+}
+
+/* Пасха */
+/* Пасхальный тропарь "Христос Воскресе..." и задостойник "Ангел вопияше..." */
+/* отменяется на Вознесение Господне, возобновляется на Пасху */
+
+.easter-tropar, .easter-zadostoynik {
 display: none;
 }
 
+/* От Вознесения начало обычное с "Во Имя Отца и Сына...", "Достойно есть...", начало обычное в молитвах перед канонами. */
+/* Отменяется на Пасхальной неделе, возобновляется на Праздник Вознесения Господня, читается все кроме Царю Небесный */
+.easter-morning, .easter-morning-end, .easter-night, .easter-night-end, .easter-kanon {
+/* display: none; */
+}
+
+/* Пятидесятница, "Царю Небесный..." */
+/* От Вознесения до Троицы молитвы начинаются со "Святый Боже..." и без "Царю Небесный*/
+/* Отменяется на Воснесение, возобновляется на Троицу */
+.pentecost {
+	/* display: none; */
+}
+/* Навигация */
+     
+/* Шрифты */
+
+.dark-mode {
+    
+}
+
+.dark-mode a {
+    color: #bb86fc; /* Link color */
+}
+
+.dark-mode h1 {
+    color: #ffffff; /* Light text for h1 */
+}
+
+/* Use a media query or additional CSS to adjust text color based on background */
+.dark-mode h1:nth-of-type(1) {
+    color: #c82d2d; /* Softer color for the first heading */
+}
+
+.dark-mode p {
+    color: #ffffff; /* Ensuring h1 also uses light text */
+}
+
 
 @font-face {
-  font-family: 'PonomarUnicode';
-  src: url('fonts/PonomarUnicode.otf') format('opentype');
+	font-family: "AncientKyivNormal";
+	src: url("/fonts/AncientKyivNormal.otf") format("opentype");
 }
 
 @font-face {
-    font-family: 'OglavieUnicode';
-    src: url('fonts/OglavieUnicode.otf') format('opentype');
-  }
-  
-  
+	font-family: "B52";
+	src: url("/fonts/b52.ttf") format("truetype");
+}
+
 @font-face {
-    font-family: 'Vertograd Unicode';
-    src: url('fonts/VertogradUnicode.otf') format('opentype');
-  }
-  
+	font-family: "CathismaUnicode";
+	src: url("/fonts/CathismaUnicode.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "OglavieUnicode";
+	src: url("/fonts/OglavieUnicode.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "PonomarUnicode";
+	src: url("/fonts/PonomarUnicode.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "TriodionUnicode";
+	src: url("/fonts/TriodionUnicode.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Vertograd Unicode";
+	src: url("/fonts/VertogradUnicode.otf") format("opentype");
+}
