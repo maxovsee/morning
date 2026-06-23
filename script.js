@@ -1009,7 +1009,7 @@ const prologContent = document.querySelector(".prolog-content");
 const prologTitleNumberElement = document.querySelector(".prologTitleNumber");
 
 if (prologElement) {
-	fetch("/prolog.json")
+	fetch("./prolog.json")
 		.then((response) => response.json())
 		.then((data) => {
 			const currentDate = new Date();
