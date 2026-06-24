@@ -1008,139 +1008,125 @@ const prologElement = document.querySelector(".prolog");
 const prologContent = document.querySelector(".prolog-content");
 const prologTitleNumberElement = document.querySelector(".prologTitleNumber");
 
-if (prologElement && prologContent) {
-  fetch("/prolog.json")
-    .then(async (response) => {
-      const text = await response.text();
-      if (!response.ok) {
-        throw new Error(`prolog.json HTTP ${response.status}`);
-      }
-      // Helpful if the file is wrong (HTML instead of JSON)
-      try {
-        return JSON.parse(text);
-      } catch {
-        throw new Error("prolog.json is not valid JSON (got non-JSON response).");
-      }
-    })
-    .then((data) => {
-      const currentDate = new Date();
-      const currentDay = currentDate.getDate();
-      const currentMonth = currentDate.getMonth();
+if (prologElement) {
+	fetch("./prolog.json")
+		.then((response) => response.json())
+		.then((data) => {
+			const currentDate = new Date();
+			const currentDay = currentDate.getDate();
+			const currentMonth = currentDate.getMonth();
 
-      const gregorianMonths = {
-        0: "января",
-        1: "февраля",
-        2: "марта",
-        3: "апреля",
-        4: "мая",
-        5: "июня",
-        6: "июля",
-        7: "августа",
-        8: "сентября",
-        9: "октября",
-        10: "ноября",
-        11: "декабря",
-      };
+			const gregorianMonths = {
+				0: "января",
+				1: "февраля",
+				2: "марта",
+				3: "апреля",
+				4: "мая",
+				5: "июня",
+				6: "июля",
+				7: "августа",
+				8: "сентября",
+				9: "октября",
+				10: "ноября",
+				11: "декабря",
+			};
 
-      const currentMonthName = gregorianMonths[currentMonth];
+			const currentMonthName = gregorianMonths[currentMonth];
 
-      const todayPrologs = Array.isArray(data)
-        ? data.filter((item) => {
-            const dateStr = (item && item.date) ? String(item.date) : "";
-            const datePattern = /^(\d+)\s*([а-яА-ЯёЁ]+)/;
-            const match = dateStr.match(datePattern);
+			const todayPrologs = data.filter(function (item) {
+				const datePattern = /^(\d+)\s*([а-яА-ЯёЁ]+)/;
+				const match = item.date.match(datePattern);
 
-            if (!match) return false;
-            const day = parseInt(match[1], 10);
-            const monthName = match[2];
+				if (match) {
+					const day = parseInt(match[1]);
+					const monthName = match[2];
 
-            return day === currentDay && monthName === currentMonthName;
-          })
-        : [];
+					return day === currentDay && monthName === currentMonthName;
+				}
+				return false;
+			});
 
-      // clear old content
-      prologElement.innerHTML = "";
-      prologElement.appendChild(prologTitleNumberElement ? prologTitleNumberElement : document.createDocumentFragment());
-      prologContent.innerHTML = "";
+			if (todayPrologs.length > 0) {
+				todayPrologs.forEach(function (prolog, index) {
+					const titleElement = document.createElement("h3");
+					titleElement.textContent = prolog.title;
+					const dateElement = document.createElement("p");
+					dateElement.style.textAlign = "center";
+					dateElement.textContent = `${orthodoxDate.getDate()} ${orthodoxMonth} (${
+						prolog.date
+					})`;
 
-      if (todayPrologs.length === 0) {
-        const prologNotFound = document.createElement("p");
-        prologNotFound.textContent = "На сегодня пролога нет.";
-        prologElement.appendChild(prologNotFound);
-        return;
-      }
+					const subtitleElement = document.createElement("p");
+					subtitleElement.style.textAlign = "center";
+					subtitleElement.style.fontStyle = "italic";
+					subtitleElement.textContent = prolog.subtitle;
 
-      todayPrologs.forEach((prolog, index) => {
-        const titleElement = document.createElement("h3");
-        titleElement.textContent = prolog.title;
+					const textElement = document.createElement("p");
+					textElement.textContent = prolog.text;
 
-        const dateElement = document.createElement("p");
-        dateElement.style.textAlign = "center";
-        dateElement.textContent = `${orthodoxDate.getDate()} ${orthodoxMonth} (${prolog.date})`;
+					const anchor = document.createElement("a");
+					anchor.style.display = "inline-block";
 
-        const subtitleElement = document.createElement("p");
-        subtitleElement.style.textAlign = "center";
-        subtitleElement.style.fontStyle = "italic";
-        subtitleElement.textContent = prolog.subtitle;
+					anchor.href = "#";
 
-        const textElement = document.createElement("p");
-        textElement.textContent = prolog.text;
+					// Check if the title is too long and create a shorter label
+					const titleWords = prolog.title.split(" ");
+					if (titleWords.length > 3) {
+						if (todayPrologs.length > 1) {
+							anchor.textContent = `Пролог ${index + 1}`;
+						} else {
+							anchor.textContent = "Пролог";
+						}
+					} else {
+						anchor.textContent = prolog.title;
+					}
 
-        const anchor = document.createElement("a");
-        anchor.style.display = "inline-block";
-        anchor.href = "#";
-        anchor.setAttribute("aria-label", "Go to " + prolog.title);
+					anchor.setAttribute("aria-label", "Go to " + prolog.title);
 
-        const titleWords = String(prolog.title || "").split(" ");
-        if (titleWords.length > 3) {
-          anchor.textContent = todayPrologs.length > 1 ? `Пролог ${index + 1}` : "Пролог";
-        } else {
-          anchor.textContent = prolog.title;
-        }
+					anchor.addEventListener("click", function (event) {
+						event.preventDefault();
+						titleElement.scrollIntoView({ behavior: "smooth" });
+					});
+					
+					prologContent.appendChild(anchor);
+					prologContent.appendChild(document.createTextNode(" | "));
 
-        anchor.addEventListener("click", (event) => {
-          event.preventDefault();
-          titleElement.scrollIntoView({ behavior: "smooth" });
-        });
+					prologElement.appendChild(titleElement);
 
-        prologContent.appendChild(anchor);
-        prologContent.appendChild(document.createTextNode(" | "));
+					prologElement.appendChild(dateElement);
+					prologElement.appendChild(subtitleElement);
+					prologElement.appendChild(textElement);
+				});
+				const lastChild = prologContent.lastChild;
+				if (lastChild) {
+					prologContent.removeChild(lastChild);
+				}
+				
+				
+				// Create and append <br> after the last anchor
+const lineBreak = document.createElement("br");
+prologContent.appendChild(lineBreak); // Append line break after the last anchor
 
-        // append details
-        prologElement.appendChild(titleElement);
-        prologElement.appendChild(dateElement);
-        prologElement.appendChild(subtitleElement);
-        prologElement.appendChild(textElement);
-      });
 
-      // remove trailing " | "
-      const lastNode = prologContent.lastChild;
-      if (lastNode && lastNode.nodeType === Node.TEXT_NODE && lastNode.textContent.trim() === "|") {
-        prologContent.removeChild(lastNode);
-      } else {
-        // if it ended with a text node containing " | " (common case)
-        if (lastNode && lastNode.nodeType === Node.TEXT_NODE) prologContent.removeChild(lastNode);
-        // and re-add separator-free break
-        prologContent.appendChild(document.createElement("br"));
-      }
+				// Calculate the number of titles and append it to the prologTitleNumberElement
+				if (prologTitleNumberElement) {
+					const titleCount = todayPrologs.length;
 
-      // number of titles (optional)
-      if (prologTitleNumberElement) {
-        const titleCount = todayPrologs.length;
-        // prologTitleNumberElement.textContent = `Прологов на сегодня(${orthodoxDate.getDate()} ${orthodoxMonth}): ${titleCount}`;
-        // prologTitleNumberElement.style.color = "#E39696";
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching prolog data:", error);
-      const prologNotFound = document.createElement("p");
-      prologNotFound.textContent = "Ошибка загрузки пролога.";
-      prologElement.appendChild(prologNotFound);
-    });
+					//prologTitleNumberElement.textContent = `Прологов на сегодня(${orthodoxDate.getDate()} ${orthodoxMonth}): ${titleCount}`;
+					//prologTitleNumberElement.style.color = "#E39696";
+				}
+			} else {
+				const prologNotFound = document.createElement("p");
+				prologNotFound.textContent = "На сегодня пролога нет.";
+				prologElement.appendChild(prologNotFound);
+			}
+		})
+		.catch(function (error) {
+			console.error("Error fetching prolog data:", error);
+		});
 } else {
-  console.error("Prolog elements not found in the DOM");
+	console.error("Prolog element not found in the DOM");
 }
-
 
 // последование Панихиды
 
