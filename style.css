@@ -1,8 +1,34 @@
+ :root {
+	--bg-color: #ffffff;
+	--text-color: #080808;
+	--muted-color: #4b5563;
+	--panel-color: #ffffff;
+	--panel-border: #000000;
+	--link-color: #000080;
+	--heading-color: #c82d2d;
+	--button-bg: #f3f4f6;
+	--button-text: #111827;
+	--shadow-color: rgba(0, 0, 0, 0.1);
+	--highlight-color: #f0f0f0;
+}
+
+body[data-theme="dark"] {
+	--bg-color: #111827;
+	--text-color: #f3f4f6;
+	--muted-color: #cbd5e1;
+	--panel-color: #1f2937;
+	--panel-border: #6b7280;
+	--link-color: #8ec5ff;
+	--heading-color: #ff8a8a;
+	--button-bg: #374151;
+	--button-text: #f9fafb;
+	--shadow-color: rgba(255, 255, 255, 0.08);
+	--highlight-color: #4b5563;
+}
+
 body {
 	text-align: justify;
 	line-height: 1.7;
-	/*background-color: AntiqueWhite; */ /* Add AntiqueWhite background    color */
-	/*color: MidnightBlue;*/
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -10,18 +36,15 @@ body {
 	transform: scale(1);
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-	/* background: #dfdfdf; /*white åletter */
-    background: white;
+    background: var(--bg-color);
+    color: var(--text-color);
     margin: 0.3em 1.1em 1.5em 1.1em;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* a light beige color */
-    /* background: #964B00;*/ /*a warm brown color*/
-	/* margin: 0;*/ /* Remove default margin */  
+    text-shadow: 0 0 5px var(--shadow-color);
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 p {
-	/*font-size: 1.4em;*/
-  color: #080808; /*(a dark gray color) */
+	color: var(--text-color);
 }
 
 i.describing {
@@ -37,23 +60,24 @@ i.describing {
   left: 0;
   right: 0;
   font-size: 0.65rem;
-  
+  background: var(--panel-color);
   background-size: 125%; /* Ensures image covers without exceeding */
   background-position: center; /* Center the image */
   padding: 3em;
-  border: 1px solid #000;
+  border: 1px solid var(--panel-border);
   border-radius: 2vmin;
   margin-top: 5px;
   margin-bottom: 5px;
   overflow: hidden; /* Hide any overflow */
+  color: var(--text-color);
 }
 
 .burger-menu a {
     display: inline-block; /* Allows for borders to wrap around links */
     text-decoration: none;
-    color: #000080;
+    color: var(--link-color);
     line-height: 1.6; /* Adjust for spacing */
-    border: 1px solid #000; /* Border color and width */
+    border: 1px solid var(--panel-border); /* Border color and width */
     border-radius: 3px; /* Rounded corners */
     padding: 2px 2px; /* Add padding for spacing inside the frame */
     margin-bottom: 2px; /* Space between items */
@@ -62,7 +86,7 @@ i.describing {
 }
 
 .burger-menu a:hover {
-    background-color: #f0f0f0; /* Optional: background change on hover */
+    background-color: var(--highlight-color); /* Optional: background change on hover */
 }
 
 .burger-menu div {
@@ -71,7 +95,7 @@ i.describing {
 	margin-top: 2px; /* Space between items */
 	padding: 2px 2px; /* Add padding for spacing inside the frame */
 	display: inline-block; /* Allows for borders to wrap around links */
-	color: #000080;
+	color: var(--link-color);
 }
 
 .settings {
@@ -91,7 +115,7 @@ i.describing {
 
 h1 {
 	font-size: 200%;
-	color: #c82d2d;
+	color: var(--heading-color);
 	font-family: "CathismaUnicode", "OglavieUnicode", Georgia;
 	text-align: center;
 	font-weight: normal;
@@ -113,7 +137,7 @@ button {
 .dropinitial {
 	float: left;
 	line-height: 1em;
-	color: #c82d2d;
+	color: var(--heading-color);
 	font-size: 4.0em;
 	font-family: "Vertograd Unicode";
 	margin: 7px 10px 0px 0px;
@@ -134,7 +158,7 @@ p:has(span.dropinitial) {
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	color: #c82d2d;
+	color: var(--heading-color);
 	
 }
 .calendar-container {
@@ -192,8 +216,25 @@ img {
 		line-height: 1.5;
 	}
 }
+.theme-toggle {
+  display: inline-block;
+  margin: 0.5rem 0 1rem auto;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
 .highlighted {
-  background-color: #c9c3e6; /* or any other darker color you prefer */
+  background-color: var(--highlight-color);
  border-radius: 2vmin;
 }
 
