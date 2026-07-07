@@ -1,5 +1,23 @@
+// Темный режим
+const themeToggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme") || "light";
 
-// Get the current date
+document.body.setAttribute("data-theme", savedTheme);
+
+if (themeToggle) {
+	themeToggle.setAttribute("aria-pressed", savedTheme === "dark");
+	themeToggle.textContent = savedTheme === "dark" ? "☀️ Светлый режим" : "🌙 Тёмный режим";
+	themeToggle.addEventListener("click", () => {
+		const isDark = document.body.getAttribute("data-theme") === "dark";
+		const nextTheme = isDark ? "light" : "dark";
+		document.body.setAttribute("data-theme", nextTheme);
+		localStorage.setItem("theme", nextTheme);
+		themeToggle.setAttribute("aria-pressed", nextTheme === "dark");
+		themeToggle.textContent = nextTheme === "dark" ? "☀️ Светлый режим" : "🌙 Тёмный режим";
+	});
+}
+
+// Православный календарь в днях
 const currentDateCalendar = new Date();
 // Calculate the Orthodox date by subtracting 13 days
 const orthodoxDate = new Date(
