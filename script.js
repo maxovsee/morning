@@ -43,7 +43,7 @@ const churchSlavonicMonths = [
 const orthodoxMonth = churchSlavonicMonths[orthodoxDate.getMonth()];
 document.getElementById(
 	"orthodox-calendar"
-).innerHTML = `${orthodoxDate.getDate()} ${orthodoxMonth}`;
+).innerHTML = `<a href="https://azbyka.ru/days/" target="_blank" style="text-decoration: underline; color: inherit;">${orthodoxDate.getDate()} ${orthodoxMonth}</a>`;
 document.getElementById("orthodox-calendar").style.textDecoration = "underline";
 
 // Display the Gregorian date
