@@ -306,35 +306,35 @@ display: none;
 
 @font-face {
 	font-family: "AncientKyivNormal";
-	src: url("/static/fonts/AncientKyivNormal.otf") format("opentype");
+	src: url("/fonts/AncientKyivNormal.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "B52";
-	src: url("/static/fonts/b52.ttf") format("truetype");
+	src: url("/fonts/b52.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "CathismaUnicode";
-	src: url("/static/fonts/CathismaUnicode.otf") format("opentype");
+	src: url("/fonts/CathismaUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "OglavieUnicode";
-	src: url("/static/fonts/OglavieUnicode.otf") format("opentype");
+	src: url("/fonts/OglavieUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "PonomarUnicode";
-	src: url("/static/fonts/PonomarUnicode.otf") format("opentype");
+	src: url("/fonts/PonomarUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "TriodionUnicode";
-	src: url("/static/fonts/TriodionUnicode.otf") format("opentype");
+	src: url("/fonts/TriodionUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Vertograd Unicode";
-	src: url("/static/fonts/VertogradUnicode.otf") format("opentype");
+	src: url("/fonts/VertogradUnicode.otf") format("opentype");
 }
