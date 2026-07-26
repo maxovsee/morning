@@ -21,7 +21,7 @@
   // 2️⃣ URLs (served from Flask static folder)
   // -------------------------------------------------------------
   const pdfUrl    = `books/${encodeURIComponent(file)}`;
-  const viewerUrl = `/static/pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
+  const viewerUrl = `pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
 
   // -------------------------------------------------------------
   // 3️⃣ Inject responsive CSS (no external stylesheet needed)
