@@ -1,4 +1,4 @@
-body {
+÷body {
 	text-align: justify;
 	line-height: 1.7;
 	/*background-color: AntiqueWhite; */ /* Add AntiqueWhite background    color */
@@ -37,7 +37,7 @@ i.describing {
   left: 0;
   right: 0;
   font-size: 0.65rem;
-  background-image: url(/static/images/book.jpg);
+
   background-size: 125%; /* Ensures image covers without exceeding */
   background-position: center; /* Center the image */
   padding: 3em;
