@@ -20,7 +20,7 @@
   // -------------------------------------------------------------
   // 2️⃣ URLs (served from Flask static folder)
   // -------------------------------------------------------------
-  const pdfUrl    = `/static/books/sinaksar/${encodeURIComponent(file)}`;
+  const pdfUrl    = `books/${encodeURIComponent(file)}`;
   const viewerUrl = `/static/pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
 
   // -------------------------------------------------------------
