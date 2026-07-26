@@ -1,34 +1,8 @@
- :root {
-	--bg-color: #ffffff;
-	--text-color: #080808;
-	--muted-color: #4b5563;
-	--panel-color: #ffffff;
-	--panel-border: #000000;
-	--link-color: #000080;
-	--heading-color: #c82d2d;
-	--button-bg: #f3f4f6;
-	--button-text: #111827;
-	--shadow-color: rgba(0, 0, 0, 0.1);
-	--highlight-color: #f0f0f0;
-}
-
-body[data-theme="dark"] {
-	--bg-color: #111827;
-	--text-color: #f3f4f6;
-	--muted-color: #cbd5e1;
-	--panel-color: #1f2937;
-	--panel-border: #6b7280;
-	--link-color: #8ec5ff;
-	--heading-color: #ff8a8a;
-	--button-bg: #374151;
-	--button-text: #f9fafb;
-	--shadow-color: rgba(255, 255, 255, 0.08);
-	--highlight-color: #4b5563;
-}
-
 body {
 	text-align: justify;
 	line-height: 1.7;
+	/*background-color: AntiqueWhite; */ /* Add AntiqueWhite background    color */
+	/*color: MidnightBlue;*/
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -36,15 +10,18 @@ body {
 	transform: scale(1);
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: var(--bg-color);
-    color: var(--text-color);
+	/* background: #dfdfdf; /*white letter */
+    background: white;
     margin: 0.3em 1.1em 1.5em 1.1em;
-    text-shadow: 0 0 5px var(--shadow-color);
-    transition: background-color 0.25s ease, color 0.25s ease;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* a light beige color */
+    /* background: #964B00;*/ /*a warm brown color*/
+	/* margin: 0;*/ /* Remove default margin */  
 }
 
 p {
-	color: var(--text-color);
+	/*font-size: 1.4em;*/
+  color: #080808; /*(a dark gray color) */
 }
 
 i.describing {
@@ -60,24 +37,23 @@ i.describing {
   left: 0;
   right: 0;
   font-size: 0.65rem;
-  background: var(--panel-color);
+  background-image: url(/static/images/book.jpg);
   background-size: 125%; /* Ensures image covers without exceeding */
   background-position: center; /* Center the image */
   padding: 3em;
-  border: 1px solid var(--panel-border);
+  border: 1px solid #000;
   border-radius: 2vmin;
   margin-top: 5px;
   margin-bottom: 5px;
   overflow: hidden; /* Hide any overflow */
-  color: var(--text-color);
 }
 
 .burger-menu a {
     display: inline-block; /* Allows for borders to wrap around links */
     text-decoration: none;
-    color: var(--link-color);
+    color: #000080;
     line-height: 1.6; /* Adjust for spacing */
-    border: 1px solid var(--panel-border); /* Border color and width */
+    border: 1px solid #000; /* Border color and width */
     border-radius: 3px; /* Rounded corners */
     padding: 2px 2px; /* Add padding for spacing inside the frame */
     margin-bottom: 2px; /* Space between items */
@@ -86,7 +62,7 @@ i.describing {
 }
 
 .burger-menu a:hover {
-    background-color: var(--highlight-color); /* Optional: background change on hover */
+    background-color: #f0f0f0; /* Optional: background change on hover */
 }
 
 .burger-menu div {
@@ -95,7 +71,7 @@ i.describing {
 	margin-top: 2px; /* Space between items */
 	padding: 2px 2px; /* Add padding for spacing inside the frame */
 	display: inline-block; /* Allows for borders to wrap around links */
-	color: var(--link-color);
+	color: #000080;
 }
 
 .settings {
@@ -115,7 +91,7 @@ i.describing {
 
 h1 {
 	font-size: 200%;
-	color: var(--heading-color);
+	color: #c82d2d;
 	font-family: "CathismaUnicode", "OglavieUnicode", Georgia;
 	text-align: center;
 	font-weight: normal;
@@ -137,7 +113,7 @@ button {
 .dropinitial {
 	float: left;
 	line-height: 1em;
-	color: var(--heading-color);
+	color: #c82d2d;
 	font-size: 4.0em;
 	font-family: "Vertograd Unicode";
 	margin: 7px 10px 0px 0px;
@@ -158,7 +134,7 @@ p:has(span.dropinitial) {
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	color: var(--heading-color);
+	color: #c82d2d;
 	
 }
 .calendar-container {
@@ -191,6 +167,25 @@ img {
 	margin: 0 auto;
 }
 
+ .block {
+      white-space: pre-wrap;
+      margin: 0 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+    .hr {
+      height: 1px;
+      background: #e6e6e6;
+      margin: 18px 0;
+    }
+    .note {
+      font-style: italic;
+      color: #333;
+      margin-top: 8px;
+    }
 /* Styles for elements when the screen is in portrait mode */
 @media only screen and (orientation: portrait) {
 	.morning h3 {
@@ -216,25 +211,8 @@ img {
 		line-height: 1.5;
 	}
 }
-.theme-toggle {
-  display: inline-block;
-  margin: 0.5rem 0 1rem auto;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid var(--panel-border);
-  border-radius: 999px;
-  background: var(--button-bg);
-  color: var(--button-text);
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-}
-
-.theme-toggle:hover {
-  transform: translateY(-1px);
-}
-
 .highlighted {
-  background-color: var(--highlight-color);
+  background-color: #c9c3e6; /* or any other darker color you prefer */
  border-radius: 2vmin;
 }
 
@@ -328,35 +306,35 @@ display: none;
 
 @font-face {
 	font-family: "AncientKyivNormal";
-	src: url("./fonts/AncientKyivNormal.otf") format("opentype");
+	src: url("/static/fonts/AncientKyivNormal.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "B52";
-	src: url("./fonts/b52.ttf") format("truetype");
+	src: url("/static/fonts/b52.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "CathismaUnicode";
-	src: url("./fonts/CathismaUnicode.otf") format("opentype");
+	src: url("/static/fonts/CathismaUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "OglavieUnicode";
-	src: url("./fonts/OglavieUnicode.otf") format("opentype");
+	src: url("/static/fonts/OglavieUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "PonomarUnicode";
-	src: url("./fonts/PonomarUnicode.otf") format("opentype");
+	src: url("/static/fonts/PonomarUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "TriodionUnicode";
-	src: url("./fonts/TriodionUnicode.otf") format("opentype");
+	src: url("/static/fonts/TriodionUnicode.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Vertograd Unicode";
-	src: url("./fonts/VertogradUnicode.otf") format("opentype");
+	src: url("/static/fonts/VertogradUnicode.otf") format("opentype");
 }
