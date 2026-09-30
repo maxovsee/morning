@@ -20,10 +20,13 @@
   // -------------------------------------------------------------
   // 2️⃣ URLs (served from Flask static folder)
   // -------------------------------------------------------------
-  const pdfUrl = new URL(`./books/${file}`, window.location.href);
-const viewerUrl = new URL('./pdfjs/web/viewer.html', window.location.href);
+  const pdfUrl = new URL(`./books/${file}`, document.baseURI);
+  const viewerUrl = new URL(
+      './pdfjs/web/viewer.html',
+     document.baseURI
+    );
 
-viewerUrl.searchParams.set('file', pdfUrl.href);
+  viewerUrl.searchParams.set('file', pdfUrl.href);
 
   // -------------------------------------------------------------
   // 3️⃣ Inject responsive CSS (no external stylesheet needed)
