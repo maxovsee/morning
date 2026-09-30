@@ -95,7 +95,7 @@
   // 6️⃣ PDF.js viewer iframe (full‑featured viewer)
   // -------------------------------------------------------------
   const iframe = document.createElement('iframe');
-  iframe.src = viewerUrl;               // local PDF.js viewer
+  iframe.src = viewerUrl.href;              // local PDF.js viewer
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = '0';
