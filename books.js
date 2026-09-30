@@ -127,17 +127,17 @@ viewerUrl.searchParams.set('file', pdfUrl.href);
   // -------------------------------------------------------------
   // 8️⃣ Verify PDF exists (HEAD request) – graceful fallback
   // -------------------------------------------------------------
-  fetch(pdfUrl, { method: 'HEAD' })
-    .then(resp => {
-      if (!resp.ok) {
-        btn.textContent = `Файл ${file} не найден`;
-        btn.disabled = true;
-        btn.style.opacity = '0.6';
-      }
-    })
-    .catch(() => {
-      btn.textContent = `Ошибка загрузки`;
-      btn.disabled = true;
-      btn.style.opacity = '0.6';
-    });
+  fetch(pdfUrl.href)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    btn.textContent = `Файл ${file} не найден`;
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+  });
+
 })();
