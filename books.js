@@ -20,7 +20,7 @@
   // -------------------------------------------------------------
   // 2️⃣ URLs (served from Flask static folder)
   // -------------------------------------------------------------
-  const pdfUrl = `./books/${file}`;
+  const pdfUrl = `books/${file}`;
 
 const viewerUrl =
   'https://mozilla.github.io/pdf.js/web/viewer.html?file=' +
